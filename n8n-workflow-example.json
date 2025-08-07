@@ -1,0 +1,142 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "pay",
+        "options": {}
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Получаем тариф из запроса\nconst tariff = $input.params.tariff;\n\n// Определяем сумму в зависимости от тарифа\nlet amount = 10; // По умолчанию $10\nlet productName = 'Telegram Bot Course';\n\nif (tariff === 'notes') {\n  amount = 10;\n  productName = 'Telegram Bot Course - Notes';\n} else if (tariff === 'full') {\n  amount = 15;\n  productName = 'Telegram Bot Course - Full Package';\n} else if (tariff === 'video') {\n  amount = 10;\n  productName = 'Telegram Bot Course - Video Only';\n}\n\n// Возвращаем данные для создания инвойса\nreturn {\n  tariff,\n  amount,\n  productName\n};\n"
+      },
+      "name": "Process Tariff",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "headerAuth",
+        "httpMethod": "POST",
+        "url": "=https://api.nowpayments.io/v1/invoice",
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "price_amount",
+              "value": "={{ $json.amount }}"
+            },
+            {
+              "name": "price_currency",
+              "value": "usd"
+            },
+            {
+              "name": "order_id",
+              "value": "={{ $json.tariff }}_{{ Date.now() }}"
+            },
+            {
+              "name": "order_description",
+              "value": "={{ $json.productName }}"
+            },
+            {
+              "name": "ipn_callback_url",
+              "value": "https://your-callback-url.com/payment/callback"
+            },
+            {
+              "name": "success_url",
+              "value": "https://your-website.com/payment/success"
+            },
+            {
+              "name": "cancel_url",
+              "value": "https://your-website.com/payment/cancel"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "x-api-key",
+              "value": "YOUR_NOWPAYMENTS_API_KEY"
+            }
+          ]
+        }
+      },
+      "name": "Create NowPayments Invoice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Проверяем, что получили успешный ответ от NowPayments\nif ($input.json.status_code !== 200) {\n  throw new Error(`NowPayments API error: ${$input.json.message || 'Unknown error'}`);\n}\n\n// Формируем ответ для фронтенда\nreturn {\n  invoice_url: $input.json.invoice_url,\n  invoice_id: $input.json.id,\n  status: 'success'\n};\n"
+      },
+      "name": "Format Response",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Tariff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Tariff": {
+      "main": [
+        [
+          {
+            "node": "Create NowPayments Invoice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create NowPayments Invoice": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Response": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

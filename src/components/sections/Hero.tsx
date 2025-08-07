@@ -108,7 +108,7 @@ const Hero: FC = () => {
                 className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
               <a href="#pricing" className="btn-primary btn-lg group">
-                <span>Начать обучение за $15</span>
+                <span>Начать обучение</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
               </a>
               

@@ -30,7 +30,7 @@ const Footer: FC = () => {
             <div className="flex-grow" />
             <div className="flex flex-row gap-5 mt-2 md:mt-0">
               <a 
-                href="https://github.com"
+                href="https://github.com/bot-anica"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white transition-colors duration-200"
