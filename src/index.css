@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Импорт TailwindCSS 4 */
+@import "tailwindcss";
+
+/* CSS-first конфигурация с @theme */
+@theme {
+  /* Цвета */
+  --color-primary-white: #ffffff;
+  --color-primary-pink: #DF5FFF;
+  --color-primary-blue: #00517C;
+  --color-primary-border: #638EF0;
+  --color-primary-dark: #151C31;
+  
+  /* Темная тема */
+  --color-dark-bg: #282A36;
+  --color-dark-code: #1E1E1E;
+  --color-dark-accent: #8BE9FD;
+  --color-dark-green: #50FA7B;
+  --color-dark-orange: #FF9900;
+  
+  /* Шрифты */
+  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-family-mono: "JetBrains Mono", monospace;
+  
+  /* Анимации */
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Базовые стили */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Скрытие scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Swiper customization */
+  .course-program-swiper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow: visible !important;
+  }
+
+  .course-program-swiper .swiper-wrapper {
+    align-items: stretch !important;
+    overflow: visible !important;
+  }
+
+  .course-program-swiper .swiper-slide {
+    height: auto !important;
+  }
+
+  /* Hide default navigation buttons and pagination */
+  .course-program-swiper .swiper-button-next,
+  .course-program-swiper .swiper-button-prev,
+  .course-program-swiper .swiper-pagination {
+    display: none !important;
+  }
+}
+
+/* Компоненты */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-gradient-to-r from-primary-pink to-primary-blue text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white text-primary-dark border border-gray-300 font-semibold rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2;
+  }
+
+  /* Button sizes */
+  .btn-sm {
+    @apply py-2 px-4 text-sm;
+  }
+  
+  .btn-md {
+    @apply py-3 px-6 text-base;
+  }
+  
+  .btn-lg {
+    @apply py-4 px-8 text-lg;
+  }
+
+  /* Responsive button sizes */
+  @media (max-width: 768px) {
+    .btn-lg {
+      @apply py-3 px-6 text-base;
+    }
+    
+    .btn-md {
+      @apply py-2 px-4 text-sm;
+    }
+    
+    .btn-sm {
+      @apply py-1 px-3 text-xs;
+    }
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-r from-primary-pink to-primary-blue;
+  }
+  
+  .code-block {
+    @apply bg-primary-dark text-white p-4 rounded-lg font-mono text-sm overflow-x-auto;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-pink to-primary-blue bg-clip-text text-transparent;
+  }
+}
+
+/* Утилиты */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+}
+
+/* Ключевые кадры */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes bounceIn {
+  0% { 
+    transform: scale(0.3); 
+    opacity: 0; 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+  70% { 
+    transform: scale(0.9); 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
