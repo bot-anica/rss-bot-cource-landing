@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import { CURRENCIES } from '../../utils/constants';
+import { CurrencyCode } from '../../hooks/useAvailableCurrencies';
 
 interface PaymentMethodsProps {
-  currencies: string[];
+  currencies: CurrencyCode[];
 }
 
 const PaymentMethods: FC<PaymentMethodsProps> = ({ currencies }) => {
@@ -13,7 +14,7 @@ const PaymentMethods: FC<PaymentMethodsProps> = ({ currencies }) => {
           key={code}
           className="inline-flex items-center px-3 py-1 bg-primary-blue/10 text-primary-dark rounded-full text-sm font-medium border border-primary-blue/20"
         >
-          {`${CURRENCIES[code]?.name || code}`.trim()}
+          {CURRENCIES[code]?.name || code}
         </span>
       ))}
     </div>

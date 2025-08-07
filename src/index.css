@@ -76,6 +76,40 @@
   .course-program-swiper .swiper-pagination {
     display: none !important;
   }
+
+  /* Touch-friendly elements for mobile */
+  @media (max-width: 768px) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    input, select, textarea {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 375px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Large screens optimization */
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1400px;
+    }
+  }
+
+  /* Ultra-wide screens */
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1600px;
+    }
+  }
 }
 
 /* Компоненты */
@@ -102,7 +136,7 @@
   }
 
   /* Responsive button sizes */
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     .btn-lg {
       @apply py-3 px-6 text-base;
     }
@@ -113,6 +147,20 @@
     
     .btn-sm {
       @apply py-1 px-3 text-xs;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .btn-lg {
+      @apply py-5 px-10 text-xl;
+    }
+    
+    .btn-md {
+      @apply py-4 px-8 text-lg;
+    }
+    
+    .btn-sm {
+      @apply py-3 px-6 text-base;
     }
   }
   
@@ -135,6 +183,58 @@
   .text-gradient {
     @apply bg-gradient-to-r from-primary-pink to-primary-blue bg-clip-text text-transparent;
   }
+
+  /* Responsive container classes */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+
+  /* Responsive spacing */
+  .section-padding {
+    @apply py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40;
+  }
+
+  .section-padding-sm {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32;
+  }
+
+  /* Responsive text sizes */
+  .text-hero {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl;
+  }
+
+  .text-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  .text-subheading {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+  }
+
+  .text-body {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+
+  /* Responsive grid layouts */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5;
+  }
 }
 
 /* Утилиты */
@@ -153,6 +253,44 @@
   
   .animate-bounce-in {
     animation: bounceIn 0.6s ease-out;
+  }
+
+  /* Responsive utilities */
+  .hidden-xs {
+    @apply hidden sm:block;
+  }
+
+  .visible-xs {
+    @apply block sm:hidden;
+  }
+
+  .hidden-sm {
+    @apply hidden md:block;
+  }
+
+  .visible-sm {
+    @apply block md:hidden;
+  }
+
+  .hidden-lg {
+    @apply hidden xl:block;
+  }
+
+  .visible-lg {
+    @apply block xl:hidden;
+  }
+
+  /* Touch-friendly spacing */
+  .touch-spacing {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+
+  .touch-spacing-sm {
+    @apply p-2 sm:p-3 md:p-4;
+  }
+
+  .touch-spacing-lg {
+    @apply p-4 sm:p-6 md:p-8;
   }
 }
 

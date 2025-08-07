@@ -16,13 +16,18 @@ export class CurrencyService {
   };
 
   static getAvailableCurrencies(location: string | null): CurrencyCode[] {
+    let result: CurrencyCode[];
+    
     if (location === 'RU') {
-      return ['USD', 'EUR', 'RUB', 'USDT'];
+      result = ['USD', 'EUR', 'RUB', 'USDT'];
+    } else if (location === 'UA') {
+      result = ['USD', 'EUR', 'UAH', 'USDT'];
+    } else {
+      // Для всех остальных стран (включая US, null и другие)
+      result = ['USD', 'EUR', 'USDT'];
     }
-    if (location === 'UA') {
-      return ['USD', 'EUR', 'UAH', 'USDT'];
-    }
-    return ['USD', 'EUR', 'USDT'];
+    
+    return result;
   }
 
   static getCurrencyInfo(code: CurrencyCode): CurrencyInfo {

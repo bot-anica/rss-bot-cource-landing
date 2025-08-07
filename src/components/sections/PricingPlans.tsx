@@ -10,7 +10,7 @@ import type { FC } from 'react';
 
 const PricingPlans: FC = () => {
   const [ref, isIntersecting] = useIntersectionObserver();
-  const { location } = useGeolocation();
+  const { location, loading } = useGeolocation();
   const availableCurrencies = useAvailableCurrencies(location);
   const { plans } = usePricingPlans();
 
@@ -29,7 +29,9 @@ const PricingPlans: FC = () => {
         {/* Payment Options */}
         <PricingPlansPayment 
           availableCurrencies={availableCurrencies} 
-          isIntersecting={isIntersecting as boolean} 
+          isIntersecting={isIntersecting as boolean}
+          location={location}
+          loading={loading}
         />
       </div>
     </section>

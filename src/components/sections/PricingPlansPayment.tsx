@@ -6,11 +6,15 @@ import PaymentMethods from './PaymentMethods';
 interface PricingPlansPaymentProps {
   availableCurrencies: CurrencyCode[];
   isIntersecting: boolean;
+  location: string | null;
+  loading: boolean;
 }
 
 const PricingPlansPayment: React.FC<PricingPlansPaymentProps> = ({ 
   availableCurrencies, 
-  isIntersecting 
+  isIntersecting,
+  location,
+  loading
 }) => {
   return (
     <>

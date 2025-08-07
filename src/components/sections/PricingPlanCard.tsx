@@ -43,44 +43,44 @@ const PricingPlanCard: FC<PricingPlanCardProps> = ({ plan, isIntersecting, index
       {/* Popular Badge */}
       {plan.popular && (
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <div className="bg-gradient-to-r from-primary-pink to-primary-blue text-white px-4 py-1 rounded-full text-sm font-semibold">
+          <div className="bg-gradient-to-r from-primary-pink to-primary-blue text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
             Лучшее предложение
           </div>
         </div>
       )}
       {/* Plan Content */}
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold text-primary-dark mb-4">
+      <div className="text-center mb-6 sm:mb-8">
+        <h3 className="text-xl sm:text-2xl font-bold text-primary-dark mb-3 sm:mb-4">
           {plan.title}
         </h3>
         <div className="mb-2">
           {plan.originalPrice && (
-            <span className="text-gray-400 line-through text-lg mr-2">
+            <span className="text-gray-400 line-through text-base sm:text-lg mr-2">
               {plan.originalPrice}
             </span>
           )}
-          <span className="text-4xl font-bold text-primary-pink">
+          <span className="text-3xl sm:text-4xl font-bold text-primary-pink">
             {plan.price}
           </span>
         </div>
-        <p className="text-gray-600">
+        <p className="text-gray-600 text-sm sm:text-base">
           {plan.tagline}
         </p>
       </div>
       {/* Features */}
-      <ul className="space-y-3 mb-8 flex-grow">
+      <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-grow">
         {plan.features.map((feature, featureIndex) => (
           <motion.li
             key={featureIndex}
             initial={{ opacity: 0, x: -10 }}
             animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.4, delay: index * 0.2 + featureIndex * 0.1 }}
-            className="flex items-start gap-3 text-gray-700"
+            className="flex items-start gap-2 sm:gap-3 text-gray-700"
           >
-            <div className="flex-shrink-0 w-5 h-5 bg-primary-pink/10 rounded-full flex items-center justify-center mt-0.5">
-              <Check className="w-3 h-3 text-primary-pink" />
+            <div className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 bg-primary-pink/10 rounded-full flex items-center justify-center mt-0.5">
+              <Check className="w-2 h-2 sm:w-3 sm:h-3 text-primary-pink" />
             </div>
-            <span className="text-sm">{feature}</span>
+            <span className="text-xs sm:text-sm">{feature}</span>
           </motion.li>
         ))}
       </ul>
@@ -90,7 +90,7 @@ const PricingPlanCard: FC<PricingPlanCardProps> = ({ plan, isIntersecting, index
           to={`/payment/${plan.id}`}
           variant={plan.buttonStyle}
           size="lg"
-          className="w-full"
+          className="w-full touch-spacing"
           onClick={() => {
             // Сохраняем позицию скролла перед переходом
             sessionStorage.setItem('scrollPosition', window.scrollY.toString());
