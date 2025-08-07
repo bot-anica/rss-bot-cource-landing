@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/rss-bot-cource-landing/',
+  base: '/rss-bot-cource-landing',
   plugins: [
     react(),
     tailwindcss(),
