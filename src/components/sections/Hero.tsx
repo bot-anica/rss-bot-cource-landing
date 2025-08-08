@@ -107,12 +107,12 @@ const Hero: FC = () => {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
-              <a href="#pricing" className="btn-primary btn-lg group">
+              <Link to="#pricing" className="btn-primary btn-lg group">
                 <span>Начать обучение</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-              </a>
+              </Link>
               
-              <Link to="/pricing" className="btn-secondary btn-lg group">
+              <Link to="#course" className="btn-secondary btn-lg group">
                 <Play className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
                 <span>Смотреть программу</span>
               </Link>
@@ -143,4 +143,4 @@ const Hero: FC = () => {
   );
 };
 
-export default Hero; 
+export default Hero;

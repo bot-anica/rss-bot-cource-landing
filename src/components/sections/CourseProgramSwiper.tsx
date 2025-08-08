@@ -26,51 +26,19 @@ const CourseProgramSwiper: React.FC<CourseProgramSwiperProps> = ({
       <Swiper
         onSwiper={setSwiperRef}
         modules={[Navigation]}
-        spaceBetween={16}
+        
+        spaceBetween={24}
         slidesPerView="auto"
         centeredSlides={false}
         watchOverflow={true}
-        breakpoints={{
-          320: {
-            spaceBetween: 12,
-            slidesPerView: 1.2,
-          },
-          480: {
-            spaceBetween: 16,
-            slidesPerView: 1.5,
-          },
-          640: {
-            spaceBetween: 20,
-            slidesPerView: 2.2,
-          },
-          768: {
-            spaceBetween: 24,
-            slidesPerView: 2.5,
-          },
-          1024: {
-            spaceBetween: 24,
-            slidesPerView: 3.2,
-          },
-          1280: {
-            spaceBetween: 32,
-            slidesPerView: 3.5,
-          },
-          1440: {
-            spaceBetween: 40,
-            slidesPerView: 4,
-          },
-          1920: {
-            spaceBetween: 48,
-            slidesPerView: 4.5,
-          }
-        }}
+        breakpoints={breakpoints}
         className="course-program-swiper"
       >
         {lessons.map((lesson, index) => {
           const IconComponent = lessonIcons[index];
           const isEven = (index + 1) % 2 === 0;
           return (
-            <SwiperSlide key={lesson.id} className="!w-72 sm:!w-80 md:!w-96 lg:!w-[320px] xl:!w-[360px]">
+            <SwiperSlide key={lesson.id} className="!w-80">
               <LessonCard
                 lesson={lesson}
                 IconComponent={IconComponent}

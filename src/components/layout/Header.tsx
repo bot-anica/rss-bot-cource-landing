@@ -30,18 +30,7 @@ const Header: FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleScrollToPricing = () => {
-    const element = document.getElementById('pricing');
-    if (element) {
-      const headerHeight = 80; // Примерная высота header
-      const elementPosition = element.offsetTop - headerHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  // Удалили функцию handleScrollToPricing, так как теперь используем якорные ссылки
 
   return (
     <motion.header
@@ -69,12 +58,12 @@ const Header: FC = () => {
           
           {/* CTA Button */}
           <div className="hidden md:block flex items-center">
-            <button 
-              onClick={handleScrollToPricing}
+            <Link 
+              to="#pricing"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-pink to-primary-blue text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-offset-2 py-2 px-4 text-sm"
             >
               Начать обучение
-            </button>
+            </Link>
           </div>
           
           {/* Mobile menu button */}
@@ -118,4 +107,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header; 
+export default Header;

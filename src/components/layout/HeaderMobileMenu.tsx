@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import type { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 export interface HeaderMobileMenuProps {
   isOpen: boolean;
@@ -7,19 +8,6 @@ export interface HeaderMobileMenuProps {
 }
 
 const HeaderMobileMenu: FC<HeaderMobileMenuProps> = ({ isOpen, onClose }) => {
-  const handleScrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80; // Примерная высота header
-      const elementPosition = element.offsetTop - headerHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-    onClose();
-  };
 
   return (
     <AnimatePresence>
@@ -32,31 +20,35 @@ const HeaderMobileMenu: FC<HeaderMobileMenuProps> = ({ isOpen, onClose }) => {
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           <nav className="py-4 sm:py-6 space-y-2 sm:space-y-4 border-t border-gray-200 bg-white">
-            <button 
-              onClick={() => handleScrollToSection('course')}
+            <Link 
+              to="#course"
+              onClick={onClose}
               className="block w-full text-left text-gray-700 hover:text-primary-pink transition-colors font-medium py-3 px-3 sm:px-4 rounded-lg hover:bg-gray-50 text-sm sm:text-base flex items-center"
             >
               Курс
-            </button>
-            <button 
-              onClick={() => handleScrollToSection('pricing')}
+            </Link>
+            <Link 
+              to="#pricing"
+              onClick={onClose}
               className="block w-full text-left text-gray-700 hover:text-primary-pink transition-colors font-medium py-3 px-3 sm:px-4 rounded-lg hover:bg-gray-50 text-sm sm:text-base flex items-center"
             >
               Цены
-            </button>
-            <button 
-              onClick={() => handleScrollToSection('faq')}
+            </Link>
+            <Link 
+              to="#faq"
+              onClick={onClose}
               className="block w-full text-left text-gray-700 hover:text-primary-pink transition-colors font-medium py-3 px-3 sm:px-4 rounded-lg hover:bg-gray-50 text-sm sm:text-base flex items-center"
             >
               FAQ
-            </button>
+            </Link>
             <div className="pt-2 sm:pt-4">
-              <button 
-                onClick={() => handleScrollToSection('pricing')}
+              <Link 
+                to="#pricing"
+                onClick={onClose}
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-pink to-primary-blue text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-offset-2 py-3 px-4 sm:px-6 text-sm sm:text-base w-full text-center justify-center"
               >
                 Начать обучение
-              </button>
+              </Link>
             </div>
           </nav>
         </motion.div>
@@ -65,4 +57,4 @@ const HeaderMobileMenu: FC<HeaderMobileMenuProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default HeaderMobileMenu; 
+export default HeaderMobileMenu;
