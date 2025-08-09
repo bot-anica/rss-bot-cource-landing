@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 
 export interface SectionHeaderProps {
   title: string;
+  variant?: 'dark' | 'light';
   position?: 'left' | 'center' | 'right';
   subtitle?: string;
   isIntersecting: boolean;
@@ -12,6 +13,7 @@ export interface SectionHeaderProps {
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
+  variant = 'light',
   position = 'center',
   subtitle,
   isIntersecting,
@@ -23,6 +25,9 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
     right: 'items-end',
   };
 
+  const titleColor = variant === 'dark' ? 'text-white' : 'text-primary-dark';
+  const subtitleColor = variant === 'dark' ? 'text-slate-400' : 'text-gray-600';
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -30,11 +35,11 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       transition={{ duration: 0.6 }}
       className={`flex flex-col ${alignClasses[position]} mb-16 text-${position} ${className}`}
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">
+      <h2 className={`text-4xl md:text-5xl font-bold ${titleColor} mb-6`}>
         {title}
       </h2>
       {subtitle && (
-        <p className="text-xl text-gray-600 max-w-3xl">
+        <p className={`text-xl ${subtitleColor} max-w-3xl`}>
           {subtitle}
         </p>
       )}

@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import { memo } from 'react';
 import { motion } from 'framer-motion';
-import { WhySpecialPoint } from '../../../services/WhySpecialService';
 import WhySpecialPointItem from './WhySpecialPointItem';
+import { WhySpecialPoint } from '../../../types/sections';
 
 interface WhySpecialPointsListProps {
   points: WhySpecialPoint[];

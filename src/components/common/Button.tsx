@@ -1,11 +1,12 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
+import { ButtonSize, ButtonVariant } from '../../types/common';
 
 export interface ButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: ButtonVariant;
+  size?: ButtonSize;
   href?: string;
   to?: string;
   onClick?: () => void;
@@ -43,8 +44,8 @@ const Button: React.FC<ButtonProps> = ({
   
   const classes = cn(
     baseClasses,
-    variantClasses[variant],
-    sizeClasses[size],
+    variantClasses[variant as ButtonVariant],
+    sizeClasses[size as ButtonSize],
     disabled && 'opacity-50 cursor-not-allowed',
     className
   );

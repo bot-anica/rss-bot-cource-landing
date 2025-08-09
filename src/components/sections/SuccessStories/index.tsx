@@ -3,44 +3,19 @@ import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver'
 import { useSuccessStories } from '../../../hooks/useSuccessStories';
 import { useSuccessStoriesAnimations } from '../../../hooks/useSuccessStoriesAnimations';
 import { SuccessStoriesBackground } from './SuccessStoriesBackground';
-import { SuccessStoriesHeader } from './SuccessStoriesHeader';
 import { SuccessStoriesStats } from './SuccessStoriesStats';
 import { SuccessStoriesTestimonials } from './SuccessStoriesTestimonials';
 import { SuccessStoriesCTA } from './SuccessStoriesCTA';
+import { SectionHeader } from '../../common';
 
-export const SuccessStories: FC = () => {
+const SuccessStories: FC = () => {
   const [ref, isIntersecting] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean];
-  const { data, loading, error } = useSuccessStories();
+  const { header, stats, testimonials, ctaBlock } = useSuccessStories();
   const {
-    headerVariants,
     statVariants,
     testimonialVariants,
     ctaVariants
   } = useSuccessStoriesAnimations();
-
-  if (loading) {
-    return (
-      <section className="py-20 bg-gray-900 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-white">
-            Загрузка историй успеха...
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error || !data) {
-    return (
-      <section className="py-20 bg-gray-900 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-red-400">
-            Ошибка загрузки: {error || 'Данные недоступны'}
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section 
@@ -50,26 +25,22 @@ export const SuccessStories: FC = () => {
       <SuccessStoriesBackground />
       
       <div className="container mx-auto px-4 relative z-10">
-        <SuccessStoriesHeader
-          data={data}
-          isIntersecting={isIntersecting}
-          headerVariants={headerVariants}
-        />
+        <SectionHeader variant="dark" title={header.title} subtitle={header.subtitle} isIntersecting={isIntersecting} />
         
         <SuccessStoriesStats
-          data={data}
+          stats={stats}
           isIntersecting={isIntersecting}
           statVariants={statVariants}
         />
         
         <SuccessStoriesTestimonials
-          data={data}
+          testimonials={testimonials}
           isIntersecting={isIntersecting}
           testimonialVariants={testimonialVariants}
         />
         
         <SuccessStoriesCTA
-          data={data}
+          ctaBlock={ctaBlock}
           isIntersecting={isIntersecting}
           ctaVariants={ctaVariants}
         />
@@ -77,3 +48,5 @@ export const SuccessStories: FC = () => {
     </section>
   );
 };
+
+export default SuccessStories;

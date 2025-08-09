@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 import { memo } from 'react';
-import { WhySpecialPoint } from '../../../services/WhySpecialService';
 import Button from '../../common/Button';
+import { WhySpecialPoint } from '../../../types/sections';
+import { ButtonVariant } from '../../../types/common';
 
 interface WhySpecialPointItemProps {
   point: WhySpecialPoint;
@@ -15,7 +16,7 @@ const WhySpecialPointItem: FC<WhySpecialPointItemProps> = ({ point, isActive, on
   return (
     <Button
       onClick={onClick}
-      variant="ghost"
+      variant={ButtonVariant.GHOST}
       className={`w-full text-left cursor-pointer bg-white p-4 rounded-xl border border-l-4 transition-all duration-300 ${
         isActive
           ? 'border-gray-300 hover:border-pink-300'

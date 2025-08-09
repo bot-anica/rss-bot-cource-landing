@@ -9,19 +9,8 @@ import HeroCTA from './HeroCTA';
 import HeroBenefits from './HeroBenefits';
 
 const Hero: FC = () => {
-  const { heroData, isDataValid } = useHero();
+  const { heroData } = useHero();
   const { containerVariants, itemVariants } = useHeroAnimations();
-
-  // Проверяем, что данные загружены
-  if (!isDataValid) {
-    return (
-      <section className="bg-white relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center">Hero - Error Loading</h2>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section className="bg-white relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -35,14 +24,14 @@ const Hero: FC = () => {
           animate="visible"
         >
           {/* Header */}
-          <HeroHeader heroData={heroData} itemVariants={itemVariants} />
+          <HeroHeader title={heroData.title} subtitle={heroData.subtitle} itemVariants={itemVariants} />
 
           <div>
             {/* CTA Section */}
-            <HeroCTA heroData={heroData} itemVariants={itemVariants} />
+            <HeroCTA cta={heroData.cta} itemVariants={itemVariants} />
 
             {/* Benefits */}
-            <HeroBenefits heroData={heroData} itemVariants={itemVariants} />
+            <HeroBenefits benefits={heroData.benefits} itemVariants={itemVariants} />
           </div>
         </motion.div>
       </div>

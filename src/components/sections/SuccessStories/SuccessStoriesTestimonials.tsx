@@ -1,21 +1,26 @@
 import type { FC } from 'react';
 import { motion, type Variants } from 'framer-motion';
-import type { SuccessStoriesData } from '../../../services/SuccessStoriesService';
+import { Testimonial } from '../../../types/sections';
 
 interface SuccessStoriesTestimonialsProps {
-  data: SuccessStoriesData;
+  testimonials: Testimonial[];
   isIntersecting: boolean;
   testimonialVariants: Variants;
 }
 
+const renderIcon = (icon: any, color: string) => {
+  const IconComponent = icon
+  return <IconComponent className="w-10 h-10" style={{ color: color }} />
+};
+
 export const SuccessStoriesTestimonials: FC<SuccessStoriesTestimonialsProps> = ({
-  data,
+  testimonials,
   isIntersecting,
   testimonialVariants
 }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-      {data.testimonials.map((testimonial, index) => (
+      {testimonials.map((testimonial, index) => (
         <motion.div
           key={index}
           custom={index}
@@ -26,7 +31,7 @@ export const SuccessStoriesTestimonials: FC<SuccessStoriesTestimonialsProps> = (
         >
           <div className="flex items-center mb-4">
             <div className="flex-shrink-0 mr-4 group-hover:scale-110 transition-transform duration-300">
-              {testimonial.icon}
+              {renderIcon(testimonial.icon, testimonial.iconColor)}
             </div>
             <div>
               <h4 className="text-white font-semibold text-lg group-hover:text-yellow-400 transition-colors duration-300">

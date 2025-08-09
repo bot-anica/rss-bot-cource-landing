@@ -1,78 +1,25 @@
-import { Lightbulb, Sparkles, Zap, Star, Heart } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-
-export interface ProblemSolutionItem {
-  problem: string;
-  solution: string;
-  icon: LucideIcon;
-}
-
-export interface ProblemSolutionData {
-  title: string;
-  subtitle: string;
-  items: ProblemSolutionItem[];
-  cta: {
-    title: string;
-    subtitle: string;
-    buttonText: string;
-    link: string;
-  };
-}
+import { ProblemSolutionCTABlock, ProblemSolutionData, ProblemSolutionItem } from '../types/sections';
+import { PROBLEM_SOLUTION_CTA_BLOCK, PROBLEM_SOLUTION_ITEMS } from '../utils/constants';
+import { SectionHeadersService } from './SectionHeadersService';
 
 export class ProblemSolutionService {
-  private static instance: ProblemSolutionService;
-
-  public static getInstance(): ProblemSolutionService {
-    if (!ProblemSolutionService.instance) {
-      ProblemSolutionService.instance = new ProblemSolutionService();
-    }
-    return ProblemSolutionService.instance;
+  static getProblemSolutionItems(): ProblemSolutionItem[] {
+    return PROBLEM_SOLUTION_ITEMS;
   }
 
-  public getProblemSolutionData(): ProblemSolutionData {
+  static getProblemSolutionCTABlock(): ProblemSolutionCTABlock {
+    return PROBLEM_SOLUTION_CTA_BLOCK;
+  }
+
+  static getData(): ProblemSolutionData {
+    const header = SectionHeadersService.getHeader('problemSolution');
+    const items = ProblemSolutionService.getProblemSolutionItems();
+    const ctaBlock = ProblemSolutionService.getProblemSolutionCTABlock();
+    
     return {
-      title: "Проблемы и решения",
-      subtitle: "Большинство разработчиков сталкиваются с этими вызовами. Мы знаем, как их решить.",
-      items: [
-        {
-          problem: "Сложная архитектура",
-          solution: "Профессиональная архитектура",
-          icon: Sparkles
-        },
-        {
-          problem: "Отсутствие практики",
-          solution: "Пошаговый подход",
-          icon: Zap
-        },
-        {
-          problem: "MVP-ловушка",
-          solution: "Production-ready код",
-          icon: Star
-        },
-        {
-          problem: "Интеграции",
-          solution: "Современные технологии",
-          icon: Heart
-        }
-      ],
-      cta: {
-        title: "Готовы решить эти проблемы?",
-        subtitle: "Присоединяйтесь к курсу и создайте профессионального Telegram-бота",
-        buttonText: "Начать обучение",
-        link: "#pricing"
-      }
-    };
-  }
-
-  public validateData(data: ProblemSolutionData): boolean {
-    return !!(
-      data.title &&
-      data.subtitle &&
-      data.items &&
-      data.items.length > 0 &&
-      data.cta &&
-      data.cta.title &&
-      data.cta.buttonText
-    );
+      header,
+      items,
+      ctaBlock,
+    }
   }
 }

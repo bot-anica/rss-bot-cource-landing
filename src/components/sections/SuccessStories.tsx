@@ -1,1 +1,0 @@
-export { SuccessStories as default } from './SuccessStories/index';
