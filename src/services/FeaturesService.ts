@@ -1,16 +1,20 @@
+import { Feature, FeaturesSectionData } from '../types/sections';
 import { FEATURES } from '../utils/constants';
-
-export interface Feature {
-  icon: any;
-  color: string;
-  title: string;
-  description: string;
-  bullets: string[];
-}
+import { SectionHeadersService } from './SectionHeadersService';
 
 export class FeaturesService {
   static getAllFeatures(): Feature[] {
     return FEATURES;
+  }
+
+  static getData(): FeaturesSectionData {
+    const header = SectionHeadersService.getHeader('features');
+    const features = FeaturesService.getAllFeatures();
+
+    return {
+      header,
+      features,
+    }
   }
 
   static getFeatureByIndex(index: number): Feature | undefined {

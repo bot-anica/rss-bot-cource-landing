@@ -45,7 +45,7 @@ const Payment = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">План не найден</h1>
-          <button onClick={handleBack} className="btn-primary">
+          <button onClick={handleBack} className="btn btn-primary">
             Вернуться назад
           </button>
         </div>
@@ -157,7 +157,7 @@ const Payment = () => {
             <p className="text-gray-500 mb-4 text-sm">
               Здесь будет интегрирована форма оплаты с поддержкой выбранной валюты
             </p>
-            <button className="btn-primary">
+            <button className="btn btn-primary">
               Перейти к оплате
             </button>
           </div>

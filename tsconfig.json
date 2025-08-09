@@ -19,6 +19,6 @@
     "isolatedModules": true,
     "moduleDetection": "auto"
   },
-  "include": ["src"],
+  "include": ["src", "src/components/sections/WhySpecial/WhySpecialPointDetails.tsx"],
   "exclude": ["node_modules", "dist"]
 }

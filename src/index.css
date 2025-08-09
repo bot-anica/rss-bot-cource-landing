@@ -114,12 +114,16 @@
 
 /* Компоненты */
 @layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 font-semibold rounded-lg transition-all duration-300 focus:outline-none
+  }
+
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-gradient-to-r from-primary-pink to-primary-blue text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-offset-2;
+    @apply bg-gradient-to-r from-primary-pink to-primary-blue text-white hover:shadow-lg transform hover:scale-105;
   }
   
   .btn-secondary {
-    @apply inline-flex items-center gap-2 bg-white text-primary-dark border border-gray-300 font-semibold rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2;
+    @apply bg-white text-primary-dark border border-gray-300 hover:bg-gray-50 hover:border-gray-400;
   }
 
   /* Button sizes */

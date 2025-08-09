@@ -1,0 +1,39 @@
+import type { FC } from 'react';
+import { memo } from 'react';
+import { motion } from 'framer-motion';
+import { WhySpecialPoint } from '../../../services/WhySpecialService';
+import WhySpecialPointItem from './WhySpecialPointItem';
+
+interface WhySpecialPointsListProps {
+  points: WhySpecialPoint[];
+  activePoint: number;
+  isIntersecting: boolean;
+  onClick: (index: number) => void;
+}
+
+const WhySpecialPointsList: FC<WhySpecialPointsListProps> = ({ 
+  points, 
+  activePoint, 
+  isIntersecting,
+  onClick 
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="space-y-2"
+    >
+      {points.map((whySpecialPoint: WhySpecialPoint, index: number) => (
+        <WhySpecialPointItem
+          key={index}
+          point={whySpecialPoint}
+          isActive={activePoint === index}
+          onClick={() => onClick(index)}
+        />
+      ))}
+    </motion.div>
+  );
+};
+
+export default memo(WhySpecialPointsList);

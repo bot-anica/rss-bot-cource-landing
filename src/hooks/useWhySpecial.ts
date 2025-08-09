@@ -1,25 +1,25 @@
-import { useState, useCallback } from 'react';
-import { FeaturesService } from '../services/FeaturesService';
-import { StatsService } from '../services/StatsService';
-
-// Кэшируем данные на уровне модуля
-const features = FeaturesService.getAllFeatures();
-const stats = StatsService.getAllStats();
+import { useState, useCallback, useMemo } from 'react';
+import { WhySpecialService } from '../services/WhySpecialService';
 
 export const useWhySpecial = () => {
-  const [activeFeature, setActiveFeature] = useState(0);
+  const [activePoint, setActivePoint] = useState(0);
+  
+  // Получаем данные из сервиса
+  const { header, whySpecialPoints, stats } = useMemo(() => {
+    return WhySpecialService.getData();
+  }, []);
 
-  const setActiveFeatureIndex = useCallback((index: number) => {
-    if (index >= 0 && index < features.length) {
-      setActiveFeature(index);
+  const setActivePointIndex = useCallback((index: number) => {
+    if (WhySpecialService.validateWhySpecialPointIndex(index)) {
+      setActivePoint(index);
     }
   }, []);
 
   return {
-    features,
+    header,
+    whySpecialPoints,
     stats,
-    activeFeature,
-    isDataValid: features.length > 0 && stats.length > 0,
-    setActiveFeatureIndex,
+    activePoint,
+    setActivePointIndex,
   };
-}; 
+};

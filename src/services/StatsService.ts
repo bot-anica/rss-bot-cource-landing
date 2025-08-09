@@ -1,9 +1,5 @@
+import { Stat } from '../types/sections';
 import { STATS } from '../utils/constants';
-
-export interface Stat {
-  number: string;
-  label: string;
-}
 
 export class StatsService {
   static getAllStats(): Stat[] {
