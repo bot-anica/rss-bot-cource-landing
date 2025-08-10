@@ -1,18 +1,17 @@
-import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-import { useGeolocation } from '../../hooks/useGeolocation';
-import { useAvailableCurrencies } from '../../hooks/useAvailableCurrencies';
-import { usePricingPlans } from '../../hooks/usePricingPlans';
-import { BackgroundElements } from '../common';
-import PricingPlansHeader from './PricingPlansHeader';
+import type { FC } from 'react';
+import { useAvailableCurrencies } from '../../../hooks/useAvailableCurrencies';
+import { useGeolocation } from '../../../hooks/useGeolocation';
+import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
+import { usePricingPlans } from '../../../hooks/usePricingPlans';
+import { BackgroundElements, SectionHeader } from '../../common';
 import PricingPlansGrid from './PricingPlansGrid';
 import PricingPlansPayment from './PricingPlansPayment';
-import type { FC } from 'react';
 
 const PricingPlans: FC = () => {
-  const [ref, isIntersecting] = useIntersectionObserver();
+  const [ref, isIntersecting] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean];
   const { location, loading } = useGeolocation();
   const availableCurrencies = useAvailableCurrencies(location);
-  const { plans } = usePricingPlans();
+  const { header, plans } = usePricingPlans();
 
   return (
     <section ref={ref as any} id="pricing" className="py-32 relative overflow-hidden">
@@ -21,7 +20,7 @@ const PricingPlans: FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <PricingPlansHeader isIntersecting={isIntersecting as boolean} />
+        <SectionHeader title={header.title} subtitle={header.subtitle} isIntersecting={isIntersecting} />
 
         {/* Pricing Cards */}
         <PricingPlansGrid plans={plans} isIntersecting={isIntersecting as boolean} />
@@ -38,4 +37,4 @@ const PricingPlans: FC = () => {
   );
 };
 
-export default PricingPlans; 
+export default PricingPlans;

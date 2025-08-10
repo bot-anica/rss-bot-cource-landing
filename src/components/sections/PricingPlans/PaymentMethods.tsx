@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import { CURRENCIES } from '../../utils/constants';
-import { CurrencyCode } from '../../hooks/useAvailableCurrencies';
+import { CURRENCIES } from '../../../utils/constants';
+import { CurrencyCode } from '../../../hooks/useAvailableCurrencies';
 
 interface PaymentMethodsProps {
   currencies: CurrencyCode[];

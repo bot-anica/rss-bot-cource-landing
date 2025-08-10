@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Shield } from 'lucide-react';
-import { CurrencyCode } from '../../hooks/useAvailableCurrencies';
+import { CurrencyCode } from '../../../hooks/useAvailableCurrencies';
 import PaymentMethods from './PaymentMethods';
 
 interface PricingPlansPaymentProps {
@@ -57,4 +57,4 @@ const PricingPlansPayment: React.FC<PricingPlansPaymentProps> = ({
   );
 };
 
-export default PricingPlansPayment; 
+export default PricingPlansPayment;

@@ -15,7 +15,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
 }) => {
   const getIcon = () => {
     const IconComponent = feature.icon
-    const iconClass = `w-10 h-10 ${feature.iconColor}`;
+    const iconClass = `w-15 h-15 ${feature.iconColor}`;
     
     return <IconComponent className={iconClass} />
   };

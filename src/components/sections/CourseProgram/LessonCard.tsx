@@ -1,14 +1,7 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import type { FC } from 'react';
-
-export interface Lesson {
-  id: number;
-  title: string;
-  description: string;
-  result: string;
-  icon: string;
-}
+import { Lesson } from '../../../types/sections';
 
 interface LessonCardProps {
   lesson: Lesson;

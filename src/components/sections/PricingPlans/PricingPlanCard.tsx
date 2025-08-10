@@ -1,20 +1,9 @@
 import { motion } from 'framer-motion';
 import { Check, Loader2 } from 'lucide-react';
-import { Button, Card } from '../common';
+import { Button, Card } from '../../common';
 import { FC, useState } from 'react';
-
-export interface PricingPlan {
-  title: string;
-  price: string;
-  tagline: string;
-  icon: React.ComponentType<any>;
-  features: string[];
-  buttonText: string;
-  buttonStyle: 'primary' | 'secondary';
-  popular: boolean;
-  originalPrice?: string;
-  id: string; // Добавляем идентификатор тарифа
-}
+import { ButtonSize } from '../../../types/common';
+import { PricingPlan } from '../../../types/sections';
 
 interface PricingPlanCardProps {
   plan: PricingPlan;
@@ -24,6 +13,48 @@ interface PricingPlanCardProps {
 
 const PricingPlanCard: FC<PricingPlanCardProps> = ({ plan, isIntersecting, index }) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  const handleBuyButton = async () => {
+    try {
+      setIsLoading(true);
+      // Вызываем функцию для генерации инвойса
+      // В реальном проекте URL должен быть в переменных окружения
+      const n8nWebhookUrl = (import.meta as any).env?.VITE_N8N_WEBHOOK_URL || 'https://your-n8n-url/render/webhook/pay';
+      const res = await fetch(`${n8nWebhookUrl}?tariff=${plan.id}`);
+      
+      // Проверяем статус ответа
+      if (!res.ok) {
+        throw new Error(`Ошибка API: ${res.status} ${res.statusText}`);
+      }
+
+      const data = await res.json();
+      
+      // Проверяем, что в ответе есть URL для оплаты
+      if (!data.invoice_url) {
+        throw new Error('Не получен URL для оплаты');
+      }
+      
+      // Открываем страницу оплаты в новом окне
+      window.open(data.invoice_url, '_blank');
+    } catch (error) {
+      console.error('Ошибка при создании инвойса:', error);
+      
+      // Показываем пользователю более информативное сообщение об ошибке
+      let errorMessage = 'Произошла ошибка при создании инвойса. Пожалуйста, попробуйте позже.';
+      
+      if (error instanceof Error) {
+        // Для разработки можно показать более подробную информацию
+        if ((import.meta as any).env?.DEV) {
+          errorMessage += ` Детали: ${error.message}`;
+        }
+      }
+      
+      alert(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -88,49 +119,10 @@ const PricingPlanCard: FC<PricingPlanCardProps> = ({ plan, isIntersecting, index
       <div className="mt-auto">
         <Button
           variant={plan.buttonStyle}
-          size="lg"
+          size={ButtonSize.LG}
           className="w-full touch-spacing"
           disabled={isLoading}
-          onClick={async () => {
-            try {
-              setIsLoading(true);
-              // Вызываем функцию для генерации инвойса
-              // В реальном проекте URL должен быть в переменных окружения
-              const n8nWebhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL || 'https://your-n8n-url/render/webhook/pay';
-              const res = await fetch(`${n8nWebhookUrl}?tariff=${plan.id}`);
-              
-              // Проверяем статус ответа
-              if (!res.ok) {
-                throw new Error(`Ошибка API: ${res.status} ${res.statusText}`);
-              }
-
-              const data = await res.json();
-              
-              // Проверяем, что в ответе есть URL для оплаты
-              if (!data.invoice_url) {
-                throw new Error('Не получен URL для оплаты');
-              }
-              
-              // Открываем страницу оплаты в новом окне
-              window.open(data.invoice_url, '_blank');
-            } catch (error) {
-              console.error('Ошибка при создании инвойса:', error);
-              
-              // Показываем пользователю более информативное сообщение об ошибке
-              let errorMessage = 'Произошла ошибка при создании инвойса. Пожалуйста, попробуйте позже.';
-              
-              if (error instanceof Error) {
-                // Для разработки можно показать более подробную информацию
-                if (import.meta.env.DEV) {
-                  errorMessage += ` Детали: ${error.message}`;
-                }
-              }
-              
-              alert(errorMessage);
-            } finally {
-              setIsLoading(false);
-            }
-          }}
+          onClick={handleBuyButton}
         >
           {isLoading ? (
             <>

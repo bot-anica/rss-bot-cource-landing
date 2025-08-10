@@ -2,11 +2,8 @@ import { useState, useMemo } from 'react';
 import { FAQS } from '../utils/faqData';
 import { CurrencyService } from '../services/CurrencyService';
 import { useGeolocation } from './useGeolocation';
-
-export interface FAQItem {
-  question: string;
-  answer: string;
-}
+import { FAQItem } from '../types/sections';
+import { SectionHeadersService } from '../services/SectionHeadersService';
 
 export const useFAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -24,13 +21,16 @@ export const useFAQ = () => {
     return [...FAQS, currencyFAQ];
   }, [location]);
 
+  const header = useMemo(() => SectionHeadersService.getHeader('faq'), []);
+
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return {
+    header,
     faqs,
     openIndex,
     toggleFAQ,
   };
-}; 
+};

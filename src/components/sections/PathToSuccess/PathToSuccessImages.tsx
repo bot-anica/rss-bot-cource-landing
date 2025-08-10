@@ -1,9 +1,11 @@
 import type { FC } from 'react';
 import { motion } from 'framer-motion';
-import { PathToSuccessImages as PathToSuccessImagesType } from '../../../types/sections';
 
 interface PathToSuccessImagesProps {
-  images: PathToSuccessImagesType;
+  images: {
+    renderDashboard: string;
+    telegramBot: string;
+  };
   isIntersecting: boolean;
 }
 

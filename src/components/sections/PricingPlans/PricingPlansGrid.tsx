@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { PricingPlan } from '../../services/PricingService';
 import PricingPlanCard from './PricingPlanCard';
+import { PricingPlan } from '../../../types/sections';
 
 interface PricingPlansGridProps {
   plans: PricingPlan[];
@@ -22,4 +22,4 @@ const PricingPlansGrid: React.FC<PricingPlansGridProps> = ({ plans, isIntersecti
   );
 };
 
-export default PricingPlansGrid; 
+export default PricingPlansGrid;

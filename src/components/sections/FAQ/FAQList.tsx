@@ -1,13 +1,9 @@
 import type { FC } from 'react';
 import FAQItem from './FAQItem';
-
-interface FAQ {
-  question: string;
-  answer: string;
-}
+import { FAQItem as FAQItemType } from '../../../types/sections';
 
 interface FAQListProps {
-  faqs: FAQ[];
+  faqs: FAQItemType[];
   openIndex: number | null;
   onToggle: (index: number) => void;
   isIntersecting: boolean;

@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { Lesson } from '../../hooks/useCourseProgram';
+import { Lesson } from '../../../types/sections';
 import LessonCard from './LessonCard';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -8,7 +8,6 @@ import 'swiper/css/pagination';
 
 interface CourseProgramSwiperProps {
   lessons: Lesson[];
-  lessonIcons: any[];
   breakpoints: any;
   isIntersecting: boolean;
   setSwiperRef: (swiper: any) => void;
@@ -16,7 +15,6 @@ interface CourseProgramSwiperProps {
 
 const CourseProgramSwiper: React.FC<CourseProgramSwiperProps> = ({
   lessons,
-  lessonIcons,
   breakpoints,
   isIntersecting,
   setSwiperRef,
@@ -26,7 +24,6 @@ const CourseProgramSwiper: React.FC<CourseProgramSwiperProps> = ({
       <Swiper
         onSwiper={setSwiperRef}
         modules={[Navigation]}
-        
         spaceBetween={24}
         slidesPerView="auto"
         centeredSlides={false}
@@ -35,7 +32,7 @@ const CourseProgramSwiper: React.FC<CourseProgramSwiperProps> = ({
         className="course-program-swiper"
       >
         {lessons.map((lesson, index) => {
-          const IconComponent = lessonIcons[index];
+          const IconComponent = lesson.icon;
           const isEven = (index + 1) % 2 === 0;
           return (
             <SwiperSlide key={lesson.id} className="!w-80">
@@ -54,4 +51,4 @@ const CourseProgramSwiper: React.FC<CourseProgramSwiperProps> = ({
   );
 };
 
-export default CourseProgramSwiper; 
+export default CourseProgramSwiper;

@@ -12,7 +12,7 @@ const FeaturesGrid: FC<FeaturesGridProps> = ({
   isIntersecting
 }) => {
   return (
-    <div className="grid grid-cols-1 md:features-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {features.map((feature, index) => (
         <FeatureCard
           key={index}

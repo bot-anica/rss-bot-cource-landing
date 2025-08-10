@@ -123,3 +123,45 @@ export interface SuccessStoriesData {
   testimonials: Testimonial[];
   ctaBlock: SuccessStoriesCTABlock;
 }
+
+export interface Lesson {
+  id: number;
+  title: string;
+  description: string;
+  result: string;
+  icon: any;
+}
+
+export interface CourseProgramData {
+  header: SectionHeaderProps;
+  lessons: Lesson[];
+  breakpoints: any;
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQData {
+  header: SectionHeaderProps;
+  faqs: FAQItem[];
+}
+
+export interface PricingPlan {
+  id: string;
+  title: string;
+  price: string;
+  tagline: string;
+  icon: React.ComponentType<any>;
+  features: string[];
+  buttonText: string;
+  buttonStyle: ButtonVariant;
+  popular: boolean;
+  originalPrice?: string;
+}
+
+export interface PricingSectionData {
+  header: SectionHeaderProps;
+  plans: PricingPlan[];
+}
