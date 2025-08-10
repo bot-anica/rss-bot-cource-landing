@@ -13,7 +13,7 @@ const Hero: FC = () => {
   const { containerVariants, itemVariants } = useHeroAnimations();
 
   return (
-    <section className="bg-white relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="bg-white relative min-h-screen flex items-center justify-center overflow-hidden pt-[48px] sm:pt-[56px] lg:pt-[72px]">
       {/* Background Elements */}
       <HeroBackground />
 

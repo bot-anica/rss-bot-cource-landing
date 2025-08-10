@@ -43,6 +43,7 @@ export interface CTAItem {
   buttonVariant: ButtonVariant;
   buttonSize: ButtonSize;
   buttonIcon?: any;
+  buttonIconColor?: string;
   buttonIconPosition?: ButtonIconPosition;
 }
 

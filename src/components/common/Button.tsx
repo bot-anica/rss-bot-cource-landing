@@ -13,6 +13,7 @@ export interface ButtonProps {
   className?: string;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  withoutBorder?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,21 +26,22 @@ const Button: React.FC<ButtonProps> = ({
   className,
   disabled = false,
   type = 'button',
+  withoutBorder = false,
   ...props
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg focus:outline-none';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg focus:outline-none box-border';
   
   const variantClasses = {
     primary: 'bg-gradient-to-r from-primary-pink to-primary-blue text-white hover:scale-105 focus:ring-primary-pink',
-    secondary: 'bg-white text-primary-dark border border-primary-blue hover:bg-primary-blue hover:text-white focus:ring-primary-blue',
-    outline: 'bg-transparent text-primary-dark border-2 border-primary-pink hover:bg-primary-pink hover:text-white focus:ring-primary-pink',
+    secondary: `bg-white text-slate-800 ${withoutBorder ? '' : 'border-2 border-primary-blue/30'} hover:bg-primary-blue/5 focus:ring-primary-blue box-border`,
+    outline: `bg-transparent text-primary-dark ${withoutBorder ? '' : 'border-2 border-primary-pink'} hover:bg-primary-pink hover:text-white focus:ring-primary-pink`,
     ghost: 'bg-transparent text-gray-600 hover:text-primary-pink hover:bg-gray-50 focus:ring-gray-300'
   };
   
   const sizeClasses = {
-    sm: 'px-4 py-2 text-sm',
+    sm: 'py-2 px-4 text-sm',
     md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg'
+    lg: 'px-5 h-11 md:px-6 md:h-13 lg:px-8 lg:h-15 text-base md:text-lg'
   };
   
   const classes = cn(

@@ -13,7 +13,7 @@ const ProblemSolution: FC = () => {
   const { itemVariants, ctaVariants } = useProblemSolutionAnimations();
 
   return (
-    <section ref={ref} className="py-32 bg-white relative overflow-hidden">
+    <section ref={ref} className="py-20 md:py-24 lg:py-28 xl:py-32 bg-white relative overflow-hidden">
       <ProblemSolutionBackground />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

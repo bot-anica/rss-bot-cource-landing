@@ -11,17 +11,16 @@ interface HeroCTAProps {
   itemVariants: any;
 }
 
-const renderButtonIcon = (icon: any) => {
+const renderButtonIcon = (icon: any, color = 'primary-dark') => {
   const IconComponent = icon
-  return <IconComponent className="w-6 h-6" />
+  return <IconComponent className={`w-6 h-6 text-${color}`} />
 };
 
 const HeroCTA: FC<HeroCTAProps> = ({ cta, itemVariants }) => {
-
   return (
     <motion.div 
       variants={itemVariants}
-      className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+      className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 lg:md-16"
     >
       {Object.keys(cta).map((key) => {
         const item = cta[key as "primary" | "secondary"];
@@ -33,9 +32,9 @@ const HeroCTA: FC<HeroCTAProps> = ({ cta, itemVariants }) => {
             to={item.link}
             className="group space-x-2"
           >
-            {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.LEFT && renderButtonIcon(item.buttonIcon)}
+            {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.LEFT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
             <span>{item.text}</span>
-            {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.RIGHT && renderButtonIcon(item.buttonIcon)}
+            {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.RIGHT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
           </Button>
         );
       })}

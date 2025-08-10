@@ -6,6 +6,8 @@ import { cn } from '../../utils/cn';
 import HeaderNav from './HeaderNav';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import type { FC } from 'react';
+import { ButtonVariant, ButtonSize } from '../../types/common';
+import { Button } from '../common';
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +47,7 @@ const Header: FC = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-        <div className="flex justify-between items-center min-h-[60px] sm:min-h-[64px] lg:min-h-[72px] py-3 sm:py-4 lg:py-6">
+        <div className="flex justify-between items-center h-[48px] sm:h-[56px] lg:h-[72px] py-1 sm:py-2 lg:py-4">
           <Link 
             to="/" 
             className="text-lg sm:text-xl lg:text-2xl font-bold text-primary-dark hover:text-primary-pink transition-colors truncate flex items-center h-full"
@@ -58,12 +60,13 @@ const Header: FC = () => {
           
           {/* CTA Button */}
           <div className="hidden md:block flex items-center">
-            <Link 
+            <Button
+              variant={ButtonVariant.PRIMARY}
+              size={ButtonSize.SM}
               to="#pricing"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-pink to-primary-blue text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-offset-2 py-2 px-4 text-sm"
             >
               Начать обучение
-            </Link>
+            </Button>
           </div>
           
           {/* Mobile menu button */}

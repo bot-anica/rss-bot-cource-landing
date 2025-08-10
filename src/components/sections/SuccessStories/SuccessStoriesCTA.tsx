@@ -9,7 +9,6 @@ interface SuccessStoriesCTAProps {
 }
 
 const renderIcon = (icon: any, color: string) => {
-  console.log(color)
   const IconComponent = icon
   return <IconComponent className="w-16 h-16" style={{ color: color }} />
 };

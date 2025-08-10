@@ -1,13 +1,30 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from '../common';
+import { ButtonSize, ButtonVariant } from '../../types/common';
 
 export interface HeaderMobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const MENU_ITEMS = [
+  { to: '#course', label: 'Курс' },
+  { to: '#pricing', label: 'Цены' },
+  { to: '#faq', label: 'FAQ' },
+]
+
 const HeaderMobileMenu: FC<HeaderMobileMenuProps> = ({ isOpen, onClose }) => {
+  const renderMenuItem = (to: string, label: string) => (
+    <Link 
+      to={to}
+      onClick={onClose}
+      className="block w-full text-left text-gray-700 hover:text-primary-pink transition-colors font-medium py-1 px-2 sm:px-4 rounded-lg hover:bg-white text-sm flex items-center"
+    >
+      {label}
+    </Link>
+  )
 
   return (
     <AnimatePresence>
@@ -19,36 +36,17 @@ const HeaderMobileMenu: FC<HeaderMobileMenuProps> = ({ isOpen, onClose }) => {
           exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
-          <nav className="py-4 sm:py-6 space-y-2 sm:space-y-4 border-t border-gray-200 bg-white">
-            <Link 
-              to="#course"
-              onClick={onClose}
-              className="block w-full text-left text-gray-700 hover:text-primary-pink transition-colors font-medium py-3 px-3 sm:px-4 rounded-lg hover:bg-gray-50 text-sm sm:text-base flex items-center"
-            >
-              Курс
-            </Link>
-            <Link 
-              to="#pricing"
-              onClick={onClose}
-              className="block w-full text-left text-gray-700 hover:text-primary-pink transition-colors font-medium py-3 px-3 sm:px-4 rounded-lg hover:bg-gray-50 text-sm sm:text-base flex items-center"
-            >
-              Цены
-            </Link>
-            <Link 
-              to="#faq"
-              onClick={onClose}
-              className="block w-full text-left text-gray-700 hover:text-primary-pink transition-colors font-medium py-3 px-3 sm:px-4 rounded-lg hover:bg-gray-50 text-sm sm:text-base flex items-center"
-            >
-              FAQ
-            </Link>
-            <div className="pt-2 sm:pt-4">
-              <Link 
+          <nav className="py-2 sm:py-4 space-y-1 sm:space-y-2 border-t border-gray-200">
+            {MENU_ITEMS.map((item) => renderMenuItem(item.to, item.label))}
+            <div className="flex justify-center pt-2 sm:pt-4">
+              <Button 
+                variant={ButtonVariant.PRIMARY}
+                size={ButtonSize.SM}
                 to="#pricing"
                 onClick={onClose}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-pink to-primary-blue text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-pink focus:ring-offset-2 py-3 px-4 sm:px-6 text-sm sm:text-base w-full text-center justify-center"
               >
                 Начать обучение
-              </Link>
+              </Button>
             </div>
           </nav>
         </motion.div>
