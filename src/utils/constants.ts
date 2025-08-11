@@ -414,7 +414,7 @@ export const PROBLEM_SOLUTION_ITEMS = [
     icon: Star
   },
   {
-    problem: "Интеграции",
+    problem: "Отсутствие интеграций",
     solution: "Современные технологии",
     icon: Heart
   }

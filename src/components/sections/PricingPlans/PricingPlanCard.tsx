@@ -109,7 +109,7 @@ const PricingPlanCard: FC<PricingPlanCardProps> = ({ plan, isIntersecting, index
             <div className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 bg-primary-pink/10 rounded-full flex items-center justify-center mt-0.5">
               <Check className="w-2 h-2 sm:w-3 sm:h-3 text-primary-pink" />
             </div>
-            <span className="text-xs sm:text-sm">{feature}</span>
+            <span className="text-sm">{feature}</span>
           </motion.li>
         ))}
       </ul>
