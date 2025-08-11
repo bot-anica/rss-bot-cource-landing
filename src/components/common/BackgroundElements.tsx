@@ -11,28 +11,7 @@ const BackgroundElements: React.FC<BackgroundElementsProps> = ({
   showIcons = true
 }) => {
   return (
-    <>
-      {showBlobs && (
-        <>
-          <BackgroundBlob 
-            position="top-left" 
-            size="large" 
-            color="pinkPurple" 
-            opacity={0.08} 
-            animation="float" 
-            delay={0} 
-          />
-          <BackgroundBlob 
-            position="bottom-right" 
-            size="medium" 
-            color="purple" 
-            opacity={0.06} 
-            animation="drift" 
-            delay={3} 
-          />
-        </>
-      )}
-      
+    <>     
       {showIcons && (
         <>
           <BackgroundIcon 
@@ -40,6 +19,15 @@ const BackgroundElements: React.FC<BackgroundElementsProps> = ({
             position="top-right" 
             size={30} 
             color="primary-pink" 
+            opacity={0.2} 
+            animation="float" 
+            delay={1} 
+          />
+          <BackgroundIcon 
+            icon="heart" 
+            position="top-left" 
+            size={30} 
+            color="pink" 
             opacity={0.2} 
             animation="float" 
             delay={1} 

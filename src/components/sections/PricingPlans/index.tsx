@@ -3,7 +3,7 @@ import { useAvailableCurrencies } from '../../../hooks/useAvailableCurrencies';
 import { useGeolocation } from '../../../hooks/useGeolocation';
 import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
 import { usePricingPlans } from '../../../hooks/usePricingPlans';
-import { BackgroundElements, SectionHeader } from '../../common';
+import { BackgroundElements, SectionHeader, SectionSplitter } from '../../common';
 import PricingPlansGrid from './PricingPlansGrid';
 import PricingPlansPayment from './PricingPlansPayment';
 
@@ -14,8 +14,7 @@ const PricingPlans: FC = () => {
   const { header, plans } = usePricingPlans();
 
   return (
-    <section ref={ref as any} id="pricing" className="py-32 relative overflow-hidden">
-      {/* Background elements */}
+    <section ref={ref as any} id="pricing" className="py-24 lg:py-28 xl:py-32 relative overflow-hidden">
       <BackgroundElements />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

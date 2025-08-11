@@ -5,7 +5,7 @@ import { useWhySpecial } from '../../../hooks/useWhySpecial';
 import StatsSection from './StatsSection';
 import WhySpecialPointsList from './WhySpecialPointsList';
 import WhySpecialPointDetails from './WhySpecialPointDetails';
-import { SectionHeader } from '../../common';
+import { SectionHeader, SectionSplitter } from '../../common';
 
 const WhySpecial: FC = () => {
   const { ref, isIntersecting } = useAnimatedSection();
@@ -24,13 +24,15 @@ const WhySpecial: FC = () => {
   const currentPoint = whySpecialPoints[activePoint];
 
   return (
-    <section ref={ref as any} className="py-32 bg-white relative overflow-hidden">
+    <section ref={ref as any} className="py-24 lg:py-28 xl:py-32 bg-white relative overflow-hidden">
+      <SectionSplitter />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <SectionHeader isIntersecting={isIntersecting} title={header.title} subtitle={header.subtitle} />
 
         {/* Interactive why special points Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 mb-8 lg:mb-12 xl:mb-16">
           {/* Left Menu */}
           <WhySpecialPointsList
             points={whySpecialPoints} 
@@ -42,7 +44,9 @@ const WhySpecial: FC = () => {
           {/* Right Content */}
           {currentPoint && (
             <WhySpecialPointDetails 
-              point={currentPoint} 
+              point={currentPoint}
+              isFirstPoint={activePoint === 0}
+              isLastPoint={activePoint === whySpecialPoints.length - 1}
               isIntersecting={isIntersecting} 
             />
           )}

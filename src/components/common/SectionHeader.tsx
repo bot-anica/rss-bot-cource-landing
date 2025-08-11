@@ -33,7 +33,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       initial={{ opacity: 0, y: 20 }}
       animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6 }}
-      className={`flex flex-col ${alignClasses[position]} mb-6 md:mb-8 lg:mb-12 xl:mb-16 text-${position} ${className}`}
+      className={`flex flex-col ${alignClasses[position]} mb-8 lg:mb-12 xl:mb-16 text-${position} ${className}`}
     >
       <h2 className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold ${titleColor} mb-2 md:mb-3 lg:mb-4 xl:mb-6`}>
         {title}

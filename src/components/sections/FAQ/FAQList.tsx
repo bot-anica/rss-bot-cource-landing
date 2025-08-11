@@ -11,7 +11,7 @@ interface FAQListProps {
 
 const FAQList: FC<FAQListProps> = ({ faqs, openIndex, onToggle, isIntersecting }) => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3 md:gap-4 mb-8 lg:mb-12 xl:mb-16">
       {faqs.map((faq, idx) => (
         <FAQItem
           key={idx}

@@ -17,17 +17,17 @@ const WhySpecialPointItem: FC<WhySpecialPointItemProps> = ({ point, isActive, on
     <Button
       onClick={onClick}
       variant={ButtonVariant.GHOST}
-      className={`w-full text-left cursor-pointer bg-white p-4 rounded-xl border border-l-4 transition-all duration-300 ${
+      className={`w-full text-left cursor-pointer bg-white !px-0 py-2 lg:p-4 rounded-tl-xl rounded-tr-xl rounded-bl-none rounded-br-none lg:rounded-xl border border-b-white lg:border-l-4 transition-all duration-300 ${
         isActive
-          ? 'border-gray-300 hover:border-pink-300'
-          : 'border-white hover:border-gray-300'
+          ? 'border-gray-300 hover:border-pink-300 lg:border-gray-300 lg:hover:border-pink-300'
+          : 'border-white hover:border-gray-300 lg:border-white lg:hover:border-gray-300'
       }`}
     >
       <div className="flex items-center gap-4">
         <div className={`w-10 h-10 flex items-center justify-center`}>
           <IconComponent style={{ color: point.color }} />
         </div>
-        <div>
+        <div className="hidden lg:block">
           <h3 className={`font-semibold text-lg ${
             isActive 
               ? 'text-black' 
@@ -35,9 +35,9 @@ const WhySpecialPointItem: FC<WhySpecialPointItemProps> = ({ point, isActive, on
           }`}>
             {point.title}
           </h3>
-          <p className="text-sm text-gray-500 line-clamp-1">
+          {/* <p className="text-sm text-gray-500 line-clamp-1">
             {point.description}
-          </p>
+          </p> */}
         </div>
       </div>
     </Button>

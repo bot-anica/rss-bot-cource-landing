@@ -14,7 +14,7 @@ const ProblemSolutionItems: FC<ProblemSolutionItemsProps> = ({
   itemVariants
 }) => {
   return (
-    <div className="mb-6 md:mb-8 lg:mb-12 xl:mb-16">
+    <div className="mb-8 lg:mb-12 xl:mb-16">
       <div className="relative">
         {/* Background accent line */}
         <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent transform -translate-x-1/2"></div>
@@ -30,7 +30,7 @@ const ProblemSolutionItems: FC<ProblemSolutionItemsProps> = ({
                 animate={isIntersecting ? "visible" : "hidden"}
                 variants={itemVariants}
                 custom={index}
-                className="flex items-center gap-8"
+                className="flex items-center gap-4 md:gap-6 lg:gap-8"
               >
                 {/* Problem side */}
                 <div className="flex-1 text-right">

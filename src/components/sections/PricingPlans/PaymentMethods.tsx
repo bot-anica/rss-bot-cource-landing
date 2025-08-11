@@ -12,7 +12,7 @@ const PaymentMethods: FC<PaymentMethodsProps> = ({ currencies }) => {
       {currencies.map((code) => (
         <span
           key={code}
-          className="inline-flex items-center px-3 py-1 bg-primary-blue/10 text-primary-dark rounded-full text-sm font-medium border border-primary-blue/20"
+          className="inline-flex items-center px-3 py-1 bg-primary-pink/30 text-primary-dark rounded-full text-xs md:text-sm font-medium"
         >
           {CURRENCIES[code]?.name || code}
         </span>

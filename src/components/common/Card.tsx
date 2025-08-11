@@ -19,11 +19,11 @@ const Card: React.FC<CardProps> = ({
   interactive = false,
   ...props
 }) => {
-  const baseClasses = 'rounded-2xl transition-all duration-300';
+  const baseClasses = 'rounded-2xl transition-all duration-300 border-box';
   
   const variantClasses = {
-    default: 'bg-white border border-gray-200',
-    elevated: 'bg-white shadow-lg border border-gray-100',
+    default: 'bg-white border border-primary-blue/15',
+    elevated: 'bg-white border-2 border-primary-pink/80',
     outlined: 'bg-transparent border-2 border-primary-pink/20',
     gradient: 'bg-gradient-to-br from-primary-pink/5 via-primary-blue/5 to-primary-pink/5 border border-primary-pink/15'
   };
@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({
     none: '',
     sm: 'p-4',
     md: 'p-6',
-    lg: 'p-8'
+    lg: 'p-8 lg:p-6 xl:p-8'
   };
   
   const interactiveClasses = interactive ? 'hover:shadow-md hover:border-primary-pink/30 cursor-pointer' : '';

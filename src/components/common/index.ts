@@ -3,6 +3,7 @@ export { default as Card } from './Card';
 export { default as MotionSection } from './MotionSection';
 export { default as SectionHeader } from './SectionHeader';
 export { default as BackgroundElements } from './BackgroundElements';
+export { default as SectionSplitter } from './SectionSplitter'; 
 export type { ButtonProps } from './Button';
 export type { CardProps } from './Card';
 export type { MotionSectionProps } from './MotionSection';

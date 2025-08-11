@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useFAQ } from '../../../hooks/useFAQ';
 import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
-import { SectionHeader } from '../../common';
+import { SectionHeader, SectionSplitter } from '../../common';
 import FAQBanner from './FAQBanner';
 import FAQList from './FAQList';
 
@@ -10,7 +10,7 @@ const FAQ: FC = () => {
   const { header, faqs, openIndex, toggleFAQ } = useFAQ();
 
   return (
-    <section ref={ref as any} id="faq" className="py-32 bg-white">
+    <section ref={ref as any} id="faq" className="py-24 lg:py-28 xl:py-32 bg-white relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <SectionHeader title={header.title} subtitle={header.subtitle} isIntersecting={isIntersecting} />

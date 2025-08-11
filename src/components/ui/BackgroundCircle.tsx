@@ -27,10 +27,10 @@ const BackgroundCircle = ({
   const getSizeClasses = () => {
     switch (size) {
       case 'small': return 'w-16 h-16';
-      case 'medium': return 'w-28 h-28 lg:w-32 lg:h-32';
-      case 'large': return 'w-56 h-56 lg:w-64 lg:h-64';
-      case 'xl': return 'w-72 h-72 lg:w-96 lg:h-96';
-      default: return 'w-28 h-28 lg:w-32 lg:h-32';
+      case 'medium': return 'w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32';
+      case 'large': return 'w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64';
+      case 'xl': return 'w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96';
+      default: return 'w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32';
     }
   };
 

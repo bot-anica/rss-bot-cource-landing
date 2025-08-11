@@ -16,13 +16,13 @@ const FAQItem: FC<FAQItemProps> = ({ question, answer, open, onClick, isIntersec
     initial={{ opacity: 0, y: 20 }}
     animate={isIntersecting ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.6, delay: index * 0.1 }}
-    className="bg-primary-blue/5 rounded-lg border border-primary-blue/30 overflow-hidden"
+    className="bg-primary-blue/5 rounded-lg border border-primary-blue/20 overflow-hidden"
   >
     <button
       onClick={onClick}
-      className="cursor-pointer w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"
+      className={`grid grid-cols-[1fr_auto] items-center cursor-pointer w-full px-4 py-3 md:px-6 md:py-3 text-left ${open ? 'bg-primary-blue/5' : ''} hover:bg-primary-blue/5 transition-colors`}
     >
-      <span className="font-medium text-primary-dark">
+      <span className="font-medium text-slate-800 text-sm md:text-base">
         {question}
       </span>
       <ChevronDown
@@ -38,7 +38,7 @@ const FAQItem: FC<FAQItemProps> = ({ question, answer, open, onClick, isIntersec
           transition={{ duration: 0.3 }}
           className="overflow-hidden"
         >
-          <div className="px-6 pb-4 text-gray-600 leading-relaxed">
+          <div className="px-4 py-3 md:px-6 md:py-3 text-sm md:text-base text-slate-600 leading-relaxed">
             {answer}
           </div>
         </motion.div>

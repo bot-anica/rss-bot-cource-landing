@@ -7,6 +7,7 @@ import HeroBackground from './HeroBackground';
 import HeroHeader from './HeroHeader';
 import HeroCTA from './HeroCTA';
 import HeroBenefits from './HeroBenefits';
+import { SectionSplitter } from '../../common';
 
 const Hero: FC = () => {
   const { heroData } = useHero();
@@ -14,7 +15,7 @@ const Hero: FC = () => {
 
   return (
     <section className="bg-white relative min-h-screen flex items-center justify-center overflow-hidden pt-[48px] sm:pt-[56px] lg:pt-[72px]">
-      {/* Background Elements */}
+      <SectionSplitter top={false} />
       <HeroBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

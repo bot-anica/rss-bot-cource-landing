@@ -5,7 +5,7 @@ import { useProblemSolutionAnimations } from '../../../hooks/useProblemSolutionA
 import ProblemSolutionBackground from './ProblemSolutionBackground';
 import ProblemSolutionItems from './ProblemSolutionItems';
 import ProblemSolutionCTA from './ProblemSolutionCTA';
-import { SectionHeader } from '../../common';
+import { SectionHeader, SectionSplitter } from '../../common';
 
 const ProblemSolution: FC = () => {
   const [ref, isIntersecting] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean];
@@ -13,7 +13,8 @@ const ProblemSolution: FC = () => {
   const { itemVariants, ctaVariants } = useProblemSolutionAnimations();
 
   return (
-    <section ref={ref} className="py-20 md:py-24 lg:py-28 xl:py-32 bg-white relative overflow-hidden">
+    <section ref={ref} className="py-24 lg:py-28 xl:py-32 bg-white relative overflow-hidden">
+      <SectionSplitter />
       <ProblemSolutionBackground />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

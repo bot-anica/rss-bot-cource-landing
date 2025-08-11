@@ -22,7 +22,7 @@ const WhySpecialPointsList: FC<WhySpecialPointsListProps> = ({
       initial={{ opacity: 0, x: -20 }}
       animate={isIntersecting ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="space-y-2"
+      className={`grid grid-flow-col lg:grid-flow-row lg:space-x-0 lg:space-y-4 -mb-1 lg:mb-0`}
     >
       {points.map((whySpecialPoint: WhySpecialPoint, index: number) => (
         <WhySpecialPointItem
