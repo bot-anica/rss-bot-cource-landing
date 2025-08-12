@@ -1,6 +1,7 @@
 import { Github, MessageCircle } from "lucide-react";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
+import LogoWithBG from '../../assets/images/Logo_with_bg.svg';
 
 const Footer: FC = () => {
   return (
@@ -9,7 +10,12 @@ const Footer: FC = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6 md:gap-0">
           {/* Brand & Description */}
           <div className="md:w-auto flex flex-col items-center md:items-start text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-3">Telegram Bot Course</h3>
+            <Link 
+              to="/" 
+              className="h-full mb-6"
+            >
+              <img src={LogoWithBG} alt="Logo" className="h-8 w-auto" />
+            </Link>
             <p className="text-gray-300 md:mb-4 max-w-sm lg:max-w-md text-sm lg:text-base">
               Полный курс по созданию профессионального Telegram-бота для
               парсинга RSS лент. От идеи до продакшена за 12 уроков.

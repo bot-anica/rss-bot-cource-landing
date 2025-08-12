@@ -361,8 +361,8 @@ export const FEATURES = [
 
 export const HERO = {
   title: {
-    main: 'Создайте профессионального',
-    highlight: 'Telegram-бота для новостей'
+    main: 'Создайте профессионального новостного',
+    highlight: 'Telegram-бота'
   },
   subtitle: 'Научитесь создавать профессиональные боты с нуля и получите готовый проект для портфолио',
   benefits: [

@@ -8,6 +8,7 @@ import HeaderMobileMenu from './HeaderMobileMenu';
 import type { FC } from 'react';
 import { ButtonVariant, ButtonSize } from '../../types/common';
 import { Button } from '../common';
+import LogoWithoutBG from '../../assets/images/Logo_without_bg.svg';
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,11 +49,8 @@ const Header: FC = () => {
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex justify-between items-center h-[48px] sm:h-[56px] lg:h-[72px] py-1 sm:py-2 lg:py-4">
-          <Link 
-            to="/" 
-            className="text-lg sm:text-xl lg:text-2xl font-bold text-primary-dark hover:text-primary-pink transition-colors truncate flex items-center h-full"
-          >
-            Telegram Bot Course
+          <Link to="/">
+            <img src={LogoWithoutBG} alt="Logo" className="h-8 w-auto" />
           </Link>
           
           {/* Desktop Navigation */}

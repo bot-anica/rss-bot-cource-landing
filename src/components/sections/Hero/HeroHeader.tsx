@@ -14,10 +14,10 @@ const HeroHeader: FC<HeroHeaderProps> = ({ title, subtitle, itemVariants }) => {
     <div className="mb-16 lg:mb-20 xl:mb-32">
       <motion.h1 
         variants={itemVariants}
-        className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-dark mb-4 leading-tight"
+        className="text-primary-dark mb-4 leading-tight"
       >
-        {title.main}
-        <span className="text-gradient block">{title.highlight}</span>
+        <span className="text-4xl xl:text-5xl font-bold">{title.main}</span>
+        <span className="text-gradient block uppercase text-5xl lg:text-6xl xl:text-7xl font-extrabold">{title.highlight}</span>
       </motion.h1>
       
       <motion.p 
