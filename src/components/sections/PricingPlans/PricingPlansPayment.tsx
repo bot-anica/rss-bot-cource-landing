@@ -6,15 +6,11 @@ import PaymentMethods from './PaymentMethods';
 interface PricingPlansPaymentProps {
   availableCurrencies: CurrencyCode[];
   isIntersecting: boolean;
-  location: string | null;
-  loading: boolean;
 }
 
 const PricingPlansPayment: React.FC<PricingPlansPaymentProps> = ({ 
   availableCurrencies, 
   isIntersecting,
-  location,
-  loading
 }) => {
   return (
     <>
@@ -29,7 +25,6 @@ const PricingPlansPayment: React.FC<PricingPlansPaymentProps> = ({
           Цены указаны в долларах США. Для оплаты можете использовать
         </p>
         <PaymentMethods currencies={availableCurrencies} />
-        <p className="text-gray-600">и 100+ криптовалют</p>
       </motion.div>
 
       {/* Quality Guarantee */}

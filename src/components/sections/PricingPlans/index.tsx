@@ -9,7 +9,7 @@ import PricingPlansPayment from './PricingPlansPayment';
 
 const PricingPlans: FC = () => {
   const [ref, isIntersecting] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean];
-  const { location, loading } = useGeolocation();
+  const { location } = useGeolocation();
   const availableCurrencies = useAvailableCurrencies(location);
   const { header, plans } = usePricingPlans();
 
@@ -28,8 +28,6 @@ const PricingPlans: FC = () => {
         <PricingPlansPayment 
           availableCurrencies={availableCurrencies} 
           isIntersecting={isIntersecting as boolean}
-          location={location}
-          loading={loading}
         />
       </div>
     </section>

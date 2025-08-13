@@ -15,7 +15,7 @@ export const useFAQ = () => {
     
     const currencyFAQ: FAQItem = {
       question: "В каких валютах можно оплатить курс?",
-      answer: `Мы принимаем оплату в следующих валютах: ${currencyNames} и в 100+ криптовалютах через NowPayments.`
+      answer: `Мы принимаем оплату в следующих валютах: ${currencyNames}.`
     };
 
     return [...FAQS, currencyFAQ];

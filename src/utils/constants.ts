@@ -18,18 +18,18 @@ import {
   User,
   Microscope,
   Monitor,
-  Bot,
   FileText,
   Database,
-  Keyboard,
-  Bell,
-  Shield,
-  Server,
-  BarChart,
   Settings,
-  CheckCircle,
   Video,
   Package,
+  Globe,
+  Image,
+  Filter,
+  Send,
+  Rss,
+  Cuboid,
+  History
 } from "lucide-react";
 
 import renderDashboard from '../assets/images/render-dashboard.png';
@@ -41,7 +41,6 @@ export const CURRENCIES = {
   EUR: { symbol: "€", name: "евро" },
   RUB: { symbol: "₽", name: "рубли" },
   UAH: { symbol: "₴", name: "гривны" },
-  USDT: { symbol: "", name: "USDT (TRC20)" },
 };
 
 export const SECTION_HEADERS = {
@@ -139,91 +138,89 @@ export const PRICING_PLANS = [
 
 export const LESSONS = [
   {
-    id: 1,
-    title: "Подготовка окружения и структуры проекта",
-    description:
-      "Создание виртуального окружения, настройка структуры проекта, управление зависимостями",
-    result: "Готовое окружение для разработки",
-    icon: Rocket,
+    "id": 1,
+    "title": "Настройка окружения",
+    "description": "Создание виртуального окружения, структуры проекта и установка зависимостей",
+    "result": "Проект инициализирован",
+    "icon": Settings
   },
   {
-    id: 2,
-    title: "Создание Telegram бота и настройка webhook",
-    description:
-      "Регистрация бота в BotFather, настройка webhook для получения обновлений",
-    result: "Работающий бот с webhook",
-    icon: Bot,
+    "id": 2,
+    "title": "Структуры данных и компоненты",
+    "description": "Проектирование TypedDict для NewsArticle и базовых компонентов бота",
+    "result": "Создана основа для разработки",
+    "icon": Cuboid
   },
   {
-    id: 3,
-    title: "Парсинг RSS лент",
-    description: "Работа с RSS лентами, извлечение данных, обработка ошибок",
-    result: "Функция парсинга RSS",
-    icon: FileText,
+    "id": 3,
+    "title": "Получение RSS данных",
+    "description": "Функции для получения и анализа RSS лент, маппинг в NewsArticle",
+    "result": "Реализовано получение данных",
+    "icon": Rss
   },
   {
-    id: 4,
-    title: "Интеграция с базой данных",
-    description: "Настройка SQLite, создание таблиц, CRUD операции",
-    result: "База данных для хранения данных",
-    icon: Database,
+    "id": 4,
+    "title": "Фильтрация и форматирование",
+    "description": "Фильтрация новостей по ключевым словам и форматирование для Telegram",
+    "result": "Данные готовы для использования",
+    "icon": Filter
   },
   {
-    id: 5,
-    title: "Обработка команд пользователя",
-    description: "Создание команд, обработка текстовых сообщений",
-    result: "Интерактивный бот",
-    icon: Keyboard,
+    "id": 5,
+    "title": "Отправка сообщений",
+    "description": "Отправка сообщений в Telegram канал и уведомления администратора",
+    "result": "Реализована отправка сообщений",
+    "icon": Send
   },
   {
-    id: 6,
-    title: "Отправка уведомлений",
-    description: "Автоматическая отправка новых статей пользователям",
-    result: "Система уведомлений",
-    icon: Bell,
+    "id": 6,
+    "title": "Интеграция MVP",
+    "description": "Объединение всех компонентов в единый main.py скрипт",
+    "result": "Рабочий MVP бот с логированием",
+    "icon": Play
   },
   {
-    id: 7,
-    title: "Обработка ошибок и логирование",
-    description: "Система логирования, обработка исключений",
-    result: "Надежный бот",
-    icon: Shield,
+    "id": 7,
+    "title": "Обогащение метаданными",
+    "description": "Извлечение описаний и изображений из источников новостей",
+    "result": "Добавлены картинки и описания",
+    "icon": Image
   },
   {
-    id: 8,
-    title: "Деплой на сервер",
-    description: "Настройка сервера, развертывание приложения",
-    result: "Бот в продакшене",
-    icon: Server,
+    "id": 8,
+    "title": "Множественные источники",
+    "description": "Поддержка нескольких RSS источников с расширяемыми мапперами",
+    "result": "Добавлен источник новостей",
+    "icon": Globe
   },
   {
-    id: 9,
-    title: "Мониторинг и метрики",
-    description: "Отслеживание производительности, метрики использования",
-    result: "Мониторинг бота",
-    icon: BarChart,
+    "id": 9,
+    "title": "История публикаций",
+    "description": "Сохранение истории в SQLite для предотвращения дубликатов",
+    "result": "Добавлена база данных SQLite",
+    "icon": History
   },
   {
-    id: 10,
-    title: "Оптимизация и масштабирование",
-    description: "Улучшение производительности, подготовка к росту",
-    result: "Оптимизированный бот",
-    icon: Zap,
+    "id": 10,
+    "title": "Миграция на PostgreSQL",
+    "description": "Переход с SQLite на PostgreSQL с использованием Neon.tech",
+    "result": "Добавлена база данных PostgreSQL",
+    "icon": Database
   },
   {
-    id: 11,
-    title: "Дополнительные функции",
-    description: "Фильтры, поиск, персонализация",
-    result: "Расширенный функционал",
-    icon: Settings,
+    "id": 11,
+    "title": "Рефакторинг и деплой",
+    "description": "Рефакторинг кода и развертывание на Render.com",
+    "result": "Выложили проект на сервер",
+    "icon": Rocket
   },
   {
-    id: 12,
-    title: "Финальная доработка и тестирование",
-    description: "Тестирование, исправление багов, финальная полировка",
-    result: "Готовый к продакшену бот",
-    icon: CheckCircle,
-  },
+    "id": 12,
+    "title": "Архитектура ядра",
+    "description": "Выделение логики в отдельный репозиторий с субмодулями",
+    "result": "Сделали ядро переиспользуемым",
+    "icon": Package
+  }
 ];
 
 export const STEPS_TO_SUCCESS = [

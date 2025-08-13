@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { CurrencyService } from '../services/CurrencyService';
 
-export type CurrencyCode = 'USD' | 'EUR' | 'RUB' | 'UAH' | 'USDT';
+export type CurrencyCode = 'USD' | 'EUR' | 'RUB' | 'UAH';
 
 export function useAvailableCurrencies(location: string | null): CurrencyCode[] {
   const currencies = useMemo(() => {

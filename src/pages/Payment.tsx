@@ -18,7 +18,7 @@ const Payment = () => {
 
   // Фильтрация валют по геолокации
   // const getAvailableCurrencies = () => {
-  //   const base = ['USD', 'EUR', 'USDT'];
+  //   const base = ['USD', 'EUR'];
   //   if (location === 'RU') return [...base, 'RUB'];
   //   if (location === 'UA') return [...base, 'UAH'];
   //   return base;

@@ -12,19 +12,18 @@ export class CurrencyService {
     EUR: { code: 'EUR', symbol: '€', name: 'евро' },
     RUB: { code: 'RUB', symbol: '₽', name: 'рубли' },
     UAH: { code: 'UAH', symbol: '₴', name: 'гривны' },
-    USDT: { code: 'USDT', symbol: '', name: 'USDT (TRC20)' },
   };
 
   static getAvailableCurrencies(location: string | null): CurrencyCode[] {
     let result: CurrencyCode[];
     
     if (location === 'RU') {
-      result = ['USD', 'EUR', 'RUB', 'USDT'];
+      result = ['USD', 'EUR', 'RUB'];
     } else if (location === 'UA') {
-      result = ['USD', 'EUR', 'UAH', 'USDT'];
+      result = ['USD', 'EUR', 'UAH'];
     } else {
       // Для всех остальных стран (включая US, null и другие)
-      result = ['USD', 'EUR', 'USDT'];
+      result = ['USD', 'EUR'];
     }
     
     return result;
