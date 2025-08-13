@@ -14,8 +14,8 @@ const ProblemSolution: FC = () => {
 
   return (
     <section ref={ref} className="py-24 lg:py-28 xl:py-32 bg-white relative overflow-hidden">
-      <SectionSplitter />
       <ProblemSolutionBackground />
+      <SectionSplitter />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader title={header.title} subtitle={header.subtitle} isIntersecting={isIntersecting} />

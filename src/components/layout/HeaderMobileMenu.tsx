@@ -39,12 +39,13 @@ const HeaderMobileMenu: FC<HeaderMobileMenuProps> = ({ isOpen, onClose }) => {
           <nav className="py-2 sm:py-4 space-y-1 sm:space-y-2 border-t border-b border-gray-200">
             {MENU_ITEMS.map((item) => renderMenuItem(item.to, item.label))}
           </nav>
-          <div className="flex justify-center mb-4 pt-4 sm:pt-8">
+          <div className="flex justify-center mb-4 pt-4">
             <Button 
               variant={ButtonVariant.PRIMARY}
               size={ButtonSize.SM}
               to="#pricing"
               onClick={onClose}
+              className="w-full sm:w-auto"
             >
               Начать обучение
             </Button>

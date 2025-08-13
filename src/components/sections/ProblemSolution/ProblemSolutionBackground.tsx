@@ -1,12 +1,16 @@
 import type { FC } from 'react';
 import BackgroundCircle from '../../ui/BackgroundCircle';
 import BackgroundIcon from '../../ui/BackgroundIcon';
+import ProblemSolutionBG from '../../../assets/images/ProblemSolutionBG.jpg';
+import FromSidesBG from '../../../assets/images/FromSidesBG.jpg';
 
 const ProblemSolutionBackground: FC = () => {
   return (
     <>
-      <BackgroundCircle 
-        position="top-left" 
+      <img src={FromSidesBG} alt="" className="absolute -top-24 lg:-top-28 xl:-top-32 w-full h-full object-cover" />
+      {/* <img src={ProblemSolutionBG} alt="" className="absolute -top-24 lg:-top-28 xl:-top-32 w-full h-full object-cover" /> */}
+      {/* <BackgroundCircle 
+        position="bottom-right" 
         size="large" 
         color="blue" 
         opacity={0.15} 
@@ -14,7 +18,7 @@ const ProblemSolutionBackground: FC = () => {
         delay={0} 
       />
       <BackgroundCircle 
-        position="bottom-right" 
+        position="top-left" 
         size="large" 
         color="pink" 
         opacity={0.12} 
@@ -38,7 +42,7 @@ const ProblemSolutionBackground: FC = () => {
         opacity={0.2} 
         animation="bounce" 
         delay={2} 
-      />
+      /> */}
     </>
   );
 };

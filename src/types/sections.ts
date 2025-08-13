@@ -50,6 +50,7 @@ export interface CTAItem {
 export interface HeroTitle {
   main: string;
   highlight: string;
+  additional: string;
 }
 
 export interface HeroData {

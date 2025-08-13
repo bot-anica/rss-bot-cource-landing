@@ -48,7 +48,7 @@ const Header: FC = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-        <div className="flex justify-between items-center h-[48px] sm:h-[56px] lg:h-[72px] py-1 sm:py-2 lg:py-4">
+        <div className="flex justify-between items-center h-[56px] lg:h-[72px] py-1 sm:py-2 lg:py-4">
           <Link to="/">
             <img src={LogoWithoutBG} alt="Logo" className="h-8 w-auto" />
           </Link>

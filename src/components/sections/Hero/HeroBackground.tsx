@@ -2,12 +2,14 @@ import type { FC } from 'react';
 import { memo } from 'react';
 import BackgroundCircle from '../../ui/BackgroundCircle';
 import BackgroundIcon from '../../ui/BackgroundIcon';
+import HeroBG from '../../../assets/images/HeroBG.jpg';
 
 const HeroBackground: FC = () => {
   return (
     <>
+      <img src={HeroBG} alt="" className="absolute w-full h-full object-cover" />
       {/* Background Circles */}
-      <BackgroundCircle 
+      {/* <BackgroundCircle 
         position="top-left" 
         size="large" 
         color="pinkPurple" 
@@ -22,10 +24,10 @@ const HeroBackground: FC = () => {
         opacity={0.06} 
         animation="float" 
         delay={4} 
-      />
+      /> */}
       
       {/* Background Icons */}
-      <BackgroundIcon 
+      {/* <BackgroundIcon 
         icon="sparkles" 
         position="top-right" 
         size={40} 
@@ -42,7 +44,7 @@ const HeroBackground: FC = () => {
         opacity={0.25} 
         animation="wave" 
         delay={3} 
-      />
+      /> */}
     </>
   );
 };

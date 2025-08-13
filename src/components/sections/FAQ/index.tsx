@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useFAQ } from '../../../hooks/useFAQ';
 import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
-import { SectionHeader, SectionSplitter } from '../../common';
+import { SectionHeader } from '../../common';
 import FAQBanner from './FAQBanner';
 import FAQList from './FAQList';
 

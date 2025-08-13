@@ -6,6 +6,7 @@ import StatsSection from './StatsSection';
 import WhySpecialPointsList from './WhySpecialPointsList';
 import WhySpecialPointDetails from './WhySpecialPointDetails';
 import { SectionHeader, SectionSplitter } from '../../common';
+import FromSidesBG from '../../../assets/images/FromSidesBG.jpg';
 
 const WhySpecial: FC = () => {
   const { ref, isIntersecting } = useAnimatedSection();
@@ -25,6 +26,7 @@ const WhySpecial: FC = () => {
 
   return (
     <section ref={ref as any} className="py-24 lg:py-28 xl:py-32 bg-white relative overflow-hidden">
+      <img src={FromSidesBG} alt="" className="absolute -top-24 lg:-top-28 xl:-top-32 w-full h-full object-cover" />
       <SectionSplitter />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

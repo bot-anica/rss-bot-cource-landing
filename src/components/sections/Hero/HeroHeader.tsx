@@ -14,15 +14,16 @@ const HeroHeader: FC<HeroHeaderProps> = ({ title, subtitle, itemVariants }) => {
     <div className="mb-16 lg:mb-20 xl:mb-32">
       <motion.h1 
         variants={itemVariants}
-        className="text-primary-dark mb-4 leading-tight"
+        className="text-primary-dark leading-tight mb-6"
       >
-        <span className="text-4xl xl:text-5xl font-bold">{title.main}</span>
-        <span className="text-gradient block uppercase text-5xl lg:text-6xl xl:text-7xl font-extrabold">{title.highlight}</span>
+        <span className="text-2xl xl:text-4xl font-bold text-slate-700">{title.main}</span>
+        <span className="text-gradient block uppercase text-5xl lg:text-8xl xl:text-9xl font-extrabold">{title.highlight}</span>
+        <span className="text-2xl xl:text-4xl font-bold text-slate-700">{title.additional}</span>
       </motion.h1>
-      
+
       <motion.p 
         variants={itemVariants}
-        className="text-base md:text-lg text-gray-500 max-w-xl lg:max-w-2xl mx-auto"
+        className="max-w-xs text-base md:text-lg text-gray-500 lg:max-w-2xl mb-8"
       >
         {subtitle}
       </motion.p>
