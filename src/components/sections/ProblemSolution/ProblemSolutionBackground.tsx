@@ -1,13 +1,16 @@
 import type { FC } from 'react';
 import BackgroundCircle from '../../ui/BackgroundCircle';
 import BackgroundIcon from '../../ui/BackgroundIcon';
-import ProblemSolutionBG from '../../../assets/images/ProblemSolutionBG.jpg';
-import FromSidesBG from '../../../assets/images/FromSidesBG.jpg';
+import FromSidesBG from '../../../assets/images/ProblemSolutionBG.webp';
+import LeftSideBG from '../../common/LeftSideBG';
+import RightSideBG from '../../common/RightSideBG';
 
 const ProblemSolutionBackground: FC = () => {
   return (
     <>
-      <img src={FromSidesBG} alt="" className="absolute -top-24 lg:-top-28 xl:-top-32 w-full h-full object-cover" />
+      <LeftSideBG />
+      <RightSideBG />
+      {/* <img src={FromSidesBG} alt="" className="absolute -top-24 lg:-top-28 xl:-top-32 w-full h-full object-cover" loading="lazy" /> */}
       {/* <img src={ProblemSolutionBG} alt="" className="absolute -top-24 lg:-top-28 xl:-top-32 w-full h-full object-cover" /> */}
       {/* <BackgroundCircle 
         position="bottom-right" 

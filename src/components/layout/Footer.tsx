@@ -1,7 +1,8 @@
-import { Github, MessageCircle } from "lucide-react";
+import { Github, Mail, MessageCircle, Send } from "lucide-react";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 import LogoWithBG from '../../assets/images/Logo_with_bg.svg';
+import { toast } from "react-toastify";
 
 const Footer: FC = () => {
   return (
@@ -62,7 +63,22 @@ const Footer: FC = () => {
                 className="text-gray-300 hover:text-white transition-colors duration-200"
                 aria-label="Telegram"
               >
-                <MessageCircle size={26} />
+                <Send size={26} />
+              </a>
+              <a
+                href="mailto:bot.anica.course@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors duration-200"
+                aria-label="Telegram"
+                onClick={() => {
+                  // Copy mail to clipboard
+                  navigator.clipboard.writeText('bot.anica.course@gmail.com');
+                  // Show toast
+                  toast.success('Email скопирован в буфер обмена');
+                }}
+              >
+                <Mail size={26} />
               </a>
             </div>
           </div>

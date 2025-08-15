@@ -6,19 +6,29 @@ import { PricingService } from '../services/PricingService';
 import { useGeolocation } from '../hooks/useGeolocation';
 import { useAvailableCurrencies } from '../hooks/useAvailableCurrencies';
 import { cn } from '../utils/cn';
+import SEOHead from '../components/common/SEOHead';
+import { useSEO } from '../hooks/useSEO';
 
 const Payment = () => {
   const { plan } = useParams();
   const navigate = useNavigate();
-  const { location, loading: locationLoading } = useGeolocation();
+  const { location } = useGeolocation();
   const availableCurrencies = useAvailableCurrencies(location);
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
   const planData = plan ? PricingService.getPlanById(plan) : undefined;
+  
+  // SEO конфигурация с динамическим заголовком
+  const seoConfig = useSEO('payment', {
+    title: planData ? `Оплата тарифа "${planData.title}"` : 'Оплата курса',
+    description: planData 
+      ? `Оплата тарифа "${planData.title}" курса по созданию Telegram-ботов. ${planData.tagline}`
+      : 'Оплата курса по созданию Telegram-ботов. Выберите подходящий тариф и начните обучение.'
+  });
 
   // Фильтрация валют по геолокации
   // const getAvailableCurrencies = () => {
-  //   const base = ['USD', 'EUR'];
+  //   const base = ['USD', 'EUR', 'USDT'];
   //   if (location === 'RU') return [...base, 'RUB'];
   //   if (location === 'UA') return [...base, 'UAH'];
   //   return base;
@@ -75,7 +85,7 @@ const Payment = () => {
           {/* Plan Details */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-primary-dark mb-4">
-              {planData.name}
+              {planData.title}
             </h1>
             <div className="text-6xl font-bold text-gradient mb-2">
               ${planData.price}
@@ -93,7 +103,7 @@ const Payment = () => {
               Что включено:
             </h3>
             <ul className="space-y-3">
-              {planData.features.map((feature, index) => (
+              {planData.features.map((feature: string, index: number) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -167,4 +177,4 @@ const Payment = () => {
   );
 };
 
-export default Payment; 
+export default Payment;

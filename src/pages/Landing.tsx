@@ -8,21 +8,28 @@ import CourseProgram from '../components/sections/CourseProgram';
 // import SuccessStories from '../components/sections/SuccessStories';
 import FAQ from '../components/sections/FAQ';
 import PricingPlans from '../components/sections/PricingPlans';
+import SEOHead from '../components/common/SEOHead';
+import { useSEO } from '../hooks/useSEO';
 
 const Landing: React.FC = () => {
+  const seoConfig = useSEO('home');
+
   return (
-    <main>
-      <Hero />
-      <ProblemSolution />
-      {/* <Features /> */}
-      <WhySpecial />
-      <CourseProgram />
-      {/* <PathToSuccess /> */}
-      {/* <SuccessStories /> */}
-      <PricingPlans />
-      <FAQ />
-    </main>
+    <>
+      <SEOHead {...seoConfig} />
+      <main>
+        <Hero />
+        <ProblemSolution />
+        {/* <Features /> */}
+        <WhySpecial />
+        <CourseProgram />
+        {/* <PathToSuccess /> */}
+        {/* <SuccessStories /> */}
+        <PricingPlans />
+        <FAQ />
+      </main>
+    </>
   );
 };
 
-export default Landing; 
+export default Landing;

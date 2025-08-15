@@ -32,8 +32,8 @@ import {
   History
 } from "lucide-react";
 
-import renderDashboard from '../assets/images/render-dashboard.png';
-import telegramBot from '../assets/images/telegram-bot.png';
+import renderDashboard from '../assets/images/render-dashboard.webp';
+import telegramBot from '../assets/images/telegram-bot.webp';
 import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../types/common";
 
 export const CURRENCIES = {
@@ -41,6 +41,7 @@ export const CURRENCIES = {
   EUR: { symbol: "€", name: "евро" },
   RUB: { symbol: "₽", name: "рубли" },
   UAH: { symbol: "₴", name: "гривны" },
+  USDT: { symbol: "", name: "USDT (TRC20)" },
 };
 
 export const SECTION_HEADERS = {

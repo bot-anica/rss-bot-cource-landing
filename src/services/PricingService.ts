@@ -7,6 +7,10 @@ export class PricingService {
     return PRICING_PLANS;
   }
 
+  static getPlanById(id: string): PricingPlan | undefined {
+    return PRICING_PLANS.find(plan => plan.id === id);
+  }
+
   static getData(): PricingSectionData {
     const header = SectionHeadersService.getHeader('pricingPlans');
     const plans = PricingService.getAllPlans();
@@ -16,4 +20,4 @@ export class PricingService {
       plans,
     }
   }
-} 
+}
