@@ -16,10 +16,10 @@ const HeroBenefits: FC<HeroBenefitsProps> = ({ benefits, itemVariants }) => {
       {benefits.map((benefit, index) => (
         <div 
           key={index}
-          className="flex items-center gap-1 md:gap-2 px-2 py-0.5 md:px-3 md:py-1 bg-primary-blue/5 rounded-full border border-primary-blue/20"
+          className="flex items-center gap-1 md:gap-2 px-2 py-0.5 bg-primary-blue/5 rounded-full border border-primary-blue/20 border-dashed"
         >
-          <span className="text-sm xl:text-base text-green-500">✔</span>
-          <span className="text-xs xl:text-sm font-medium text-primary-blue/80">{benefit}</span>
+          <span className="text-sm text-green-500">✔</span>
+          <span className="text-xs font-medium text-primary-blue/80">{benefit}</span>
         </div>
       ))}
     </motion.div>

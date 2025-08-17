@@ -30,16 +30,17 @@ const Hero: FC = () => {
             initial="hidden"
             animate="visible"
           >
-            <div className="grid gap-8 md:gap-0 mb-8 lg:mb-20 xl:mb-32">
+            <HeroBenefits benefits={heroData.benefits} itemVariants={itemVariants} />
+            <div className="grid gap-12 md:gap-0 mb-12 lg:mt-4 lg:mb-4">
               <HeroTitle title={heroData.title} itemVariants={itemVariants} />
-              <img src={HeroImageHorizontalSmall} alt="" className="block sm:hidden relative z-10 m-auto -mt-2" />
-              <img src={HeroImageHorizontalMiddle} alt="" className="hidden sm:block md:hidden relative z-10 m-auto -mt-2" />
-              <HeroSubtitle subtitle={heroData.subtitle} itemVariants={itemVariants} />
+              <img src={HeroImageHorizontalSmall} alt="" className="block sm:hidden relative z-10" />
+              <img src={HeroImageHorizontalMiddle} alt="" className="hidden sm:block md:hidden relative z-10 m-auto" />
             </div>
 
             <div>
+              <HeroSubtitle subtitle={heroData.subtitle} itemVariants={itemVariants} />
               <HeroCTA cta={heroData.cta} itemVariants={itemVariants} />
-              <HeroBenefits benefits={heroData.benefits} itemVariants={itemVariants} />
+              {/* <HeroBenefits benefits={heroData.benefits} itemVariants={itemVariants} /> */}
             </div>
           </motion.div>
         </div>

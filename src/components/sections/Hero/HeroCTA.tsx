@@ -14,11 +14,21 @@ const renderButtonIcon = (icon: any, color = 'primary-dark') => {
   return <IconComponent className={`w-6 h-6 text-${color}`} />
 };
 
+const renderButtonContent = (item: CTAItem) => {
+  return (
+    <>
+      {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.LEFT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
+      <span>{item.text}</span>
+      {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.RIGHT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
+    </>
+  )
+}
+
 const HeroCTA: FC<HeroCTAProps> = ({ cta, itemVariants }) => {
   return (
     <motion.div 
       variants={itemVariants}
-      className="flex flex-col sm:flex-row md:flex-col xl:flex-row gap-4 md:gap-6 items-center md:items-start xl:items-center mb-8 lg:md-16"
+      className="flex flex-col sm:flex-row xl:flex-row gap-4 md:gap-6 items-start xl:items-center mb-8 lg:md-16"
     >
       {Object.keys(cta).map((key) => {
         const item = cta[key as "primary" | "secondary"];
@@ -31,31 +41,25 @@ const HeroCTA: FC<HeroCTAProps> = ({ cta, itemVariants }) => {
               to={item.link}
               className="not-xl:hidden xl:flex group space-x-2"
             >
-              {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.LEFT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
-              <span>{item.text}</span>
-              {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.RIGHT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
+              {renderButtonContent(item)}
             </Button>
             <Button
               key={`${key}_medium`}
               variant={item.buttonVariant}
               size={ButtonSize.MD}
               to={item.link}
-              className="not-md:hidden md:flex xl:hidden group space-x-2"
+              className="not-lg:hidden lg:flex xl:hidden group space-x-2"
             >
-              {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.LEFT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
-              <span>{item.text}</span>
-              {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.RIGHT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
+              {renderButtonContent(item)}
             </Button>
             <Button
               key={`${key}_small`}
               variant={item.buttonVariant}
               size={ButtonSize.SM}
               to={item.link}
-              className="flex md:hidden group space-x-2"
+              className="flex lg:hidden group space-x-2"
             >
-              {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.LEFT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
-              <span>{item.text}</span>
-              {item.buttonIcon && item.buttonIconPosition === ButtonIconPosition.RIGHT && renderButtonIcon(item.buttonIcon, item.buttonIconColor)}
+              {renderButtonContent(item)}
             </Button>
           </Fragment>
         );
