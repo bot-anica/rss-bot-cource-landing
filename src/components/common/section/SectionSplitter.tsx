@@ -1,4 +1,4 @@
-import LineStroke from "../../assets/images/line_stroke.png"
+import { LineStroke } from "../../../assets/images";
 
 export interface SectionSplitterProps {
   top?: boolean;

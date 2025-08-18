@@ -2,9 +2,8 @@ import type { FC } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useCourseProgram } from '../../../hooks/useCourseProgram';
 import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
-import { SectionHeader, SectionSplitter } from '../../common';
+import { SectionBackground, SectionHeader, SectionSplitter } from '../../common';
 import CourseProgramSwiper from './CourseProgramSwiper';
-import CourseProgramBackground from './CourseProgramBackground';
 
 const CourseProgram: FC = () => {
   const [ref, isIntersecting] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean];
@@ -12,6 +11,7 @@ const CourseProgram: FC = () => {
     header,
     lessons,
     breakpoints,
+    bgImages,
     handlePrevSlide,
     handleNextSlide,
     setSwiperRef,
@@ -19,7 +19,7 @@ const CourseProgram: FC = () => {
 
   return (
     <section ref={ref as any} id="course" className="bg-white py-24 lg:py-28 xl:py-32 relative w-full overflow-hidden">
-      <CourseProgramBackground />
+      <SectionBackground bgImages={bgImages} lazy />
       <SectionSplitter bottom={false} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

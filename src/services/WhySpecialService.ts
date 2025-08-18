@@ -1,5 +1,6 @@
 import { WhySpecialPoint, WhySpecialSectionData } from '../types/sections';
 import { WHY_SPECIAL_POINTS } from '../utils/constants';
+import { SectionBGImagesService } from './SectionBGImagesService';
 import { SectionHeadersService } from './SectionHeadersService';
 import { StatsService } from './StatsService';
 
@@ -12,11 +13,13 @@ export class WhySpecialService {
     const header = SectionHeadersService.getHeader('whySpecial');
     const whySpecialPoints = WhySpecialService.getAllWhySpecialPoints();
     const stats = StatsService.getAllStats();
+    const bgImages = SectionBGImagesService.getBGImages('whySpecial');
     
     return {
       header,
       whySpecialPoints,
       stats,
+      bgImages,
     };
   }
 

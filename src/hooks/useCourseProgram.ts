@@ -4,7 +4,7 @@ import { CourseProgramService } from '../services/CourseProgramService';
 export const useCourseProgram = () => {
   const swiperRef = useRef<any>(null);
 
-  const { header, lessons, breakpoints } = useMemo(() => {
+  const { header, lessons, breakpoints, bgImages } = useMemo(() => {
     return CourseProgramService.getData();
   }, []);
 
@@ -24,6 +24,7 @@ export const useCourseProgram = () => {
     header,
     lessons,
     breakpoints,
+    bgImages,
     swiperRef,
     handlePrevSlide,
     handleNextSlide,

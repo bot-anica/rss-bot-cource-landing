@@ -17,12 +17,42 @@ export interface WhySpecialSectionData {
   header: SectionHeaderProps,
   whySpecialPoints: WhySpecialPoint[];
   stats: Stat[];
+  bgImages: PartialSectionBGImagesProps;
 }
 
 export interface SectionHeaderProps {
   title: string;
   subtitle: string;
 }
+
+export interface BGImages {
+  small?: string;
+  smallVertical?: string;
+  medium?: string;
+  mediumVertical?: string;
+  large?: string;
+  extraLarge?: string;
+}
+
+export interface SectionBGProps {
+  images: BGImages;
+  lazy?: boolean;
+}
+
+export enum BackgroundImagePositions {
+  TOP_LEFT = "topLeft",
+  TOP = "top",
+  TOP_RIGHT = "topRight",
+  LEFT = "left",
+  CENTER = "center",
+  RIGHT = "right",
+  BOTTOM_LEFT = "bottomLeft",
+  BOTTOM = "bottom",
+  BOTTOM_RIGHT = "bottomRight"
+}
+
+export type SectionBGImagesProps = Record<BackgroundImagePositions, BGImages>
+export type PartialSectionBGImagesProps = Partial<Record<BackgroundImagePositions, BGImages>>
 
 export interface Feature {
   icon: any,
@@ -33,8 +63,9 @@ export interface Feature {
 }
 
 export interface FeaturesSectionData {
-  header: SectionHeaderProps,
+  header: SectionHeaderProps;
   features: Feature[];
+  bgImages: PartialSectionBGImagesProps;
 }
 
 export interface CTAItem {
@@ -53,7 +84,7 @@ export interface HeroTitle {
   additional: string;
 }
 
-export interface HeroData {
+export interface HeroMainData {
   title: HeroTitle;
   subtitle: string;
   benefits: string[];
@@ -61,6 +92,11 @@ export interface HeroData {
     primary: CTAItem;
     secondary: CTAItem;
   };
+}
+
+export interface HeroData {
+  data: HeroMainData,
+  bgImages: PartialSectionBGImagesProps;
 }
 
 export interface PathToSuccessStep {
@@ -76,6 +112,7 @@ export interface PathToSuccessData {
   header: SectionHeaderProps;
   steps: PathToSuccessStep[];
   images: PathToSuccessImages;
+  bgImages: PartialSectionBGImagesProps;
 }
 
 export interface ProblemSolutionItem {
@@ -94,6 +131,7 @@ export interface ProblemSolutionData {
   header: SectionHeaderProps;
   items: ProblemSolutionItem[];
   ctaBlock: ProblemSolutionCTABlock;
+  bgImages: PartialSectionBGImagesProps;
 }
 
 export interface Statistic {
@@ -124,6 +162,7 @@ export interface SuccessStoriesData {
   stats: Statistic[];
   testimonials: Testimonial[];
   ctaBlock: SuccessStoriesCTABlock;
+  bgImages: PartialSectionBGImagesProps;
 }
 
 export interface Lesson {
@@ -138,6 +177,7 @@ export interface CourseProgramData {
   header: SectionHeaderProps;
   lessons: Lesson[];
   breakpoints: any;
+  bgImages: PartialSectionBGImagesProps
 }
 
 export interface FAQItem {
@@ -166,4 +206,20 @@ export interface PricingPlan {
 export interface PricingSectionData {
   header: SectionHeaderProps;
   plans: PricingPlan[];
+  bgImages: PartialSectionBGImagesProps;
+}
+
+export interface FooterData {
+  courseDescription: string;
+  navigationLinks: LinkItem[];
+}
+
+export interface LinkItem {
+  text: string;
+  link: string;
+}
+
+export interface HeaderData {
+  navigationLinks: LinkItem[];
+  ctaButtons: CTAItem[];
 }

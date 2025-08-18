@@ -1,5 +1,6 @@
 import { Feature, FeaturesSectionData } from '../types/sections';
 import { FEATURES } from '../utils/constants';
+import { SectionBGImagesService } from './SectionBGImagesService';
 import { SectionHeadersService } from './SectionHeadersService';
 
 export class FeaturesService {
@@ -10,10 +11,12 @@ export class FeaturesService {
   static getData(): FeaturesSectionData {
     const header = SectionHeadersService.getHeader('features');
     const features = FeaturesService.getAllFeatures();
+    const bgImages = SectionBGImagesService.getBGImages('features');
 
     return {
       header,
       features,
+      bgImages,
     }
   }
 

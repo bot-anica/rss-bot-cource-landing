@@ -5,9 +5,7 @@ import { useWhySpecial } from '../../../hooks/useWhySpecial';
 import StatsSection from './StatsSection';
 import WhySpecialPointsList from './WhySpecialPointsList';
 import WhySpecialPointDetails from './WhySpecialPointDetails';
-import { SectionHeader, SectionSplitter } from '../../common';
-import FromSidesBG from '../../../assets/images/WhySpecialBG.webp';
-import WhySpecialBackground from './WhySpecialBackground';
+import { SectionBackground, SectionHeader, SectionSplitter } from '../../common';
 
 const WhySpecial: FC = () => {
   const { ref, isIntersecting } = useAnimatedSection();
@@ -15,6 +13,7 @@ const WhySpecial: FC = () => {
     header,
     whySpecialPoints,
     stats,
+    bgImages,
     activePoint,
     setActivePointIndex,
   } = useWhySpecial();
@@ -27,7 +26,7 @@ const WhySpecial: FC = () => {
 
   return (
     <section ref={ref as any} className="py-24 lg:py-28 xl:py-32 bg-white relative overflow-hidden">
-      <WhySpecialBackground />
+      <SectionBackground bgImages={bgImages} lazy />
       <SectionSplitter />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

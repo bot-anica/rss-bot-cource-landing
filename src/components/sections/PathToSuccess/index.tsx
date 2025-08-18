@@ -5,15 +5,16 @@ import { usePathToSuccessAnimations } from '../../../hooks/usePathToSuccessAnima
 import PathToSuccessBackground from './PathToSuccessBackground';
 import PathToSuccessGrid from './PathToSuccessGrid';
 import PathToSuccessImages from './PathToSuccessImages';
-import { SectionHeader } from '../../common';
+import { SectionBackground, SectionHeader } from '../../common';
 
 const PathToSuccess: FC = () => {
   const [ref, isIntersecting] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean, boolean];
-  const { header, steps, images } = usePathToSuccess();
+  const { header, steps, images, bgImages } = usePathToSuccess();
   const { animations, getStepAnimation } = usePathToSuccessAnimations();
 
   return (
     <section ref={ref} className="py-20 bg-gray-50 relative overflow-hidden">
+      <SectionBackground bgImages={bgImages} lazy />
       <PathToSuccessBackground />
       
       <div className="container mx-auto px-4 relative z-10">

@@ -1,5 +1,6 @@
 import { CourseProgramData, Lesson } from '../types/sections';
 import { LESSONS } from '../utils/constants';
+import { SectionBGImagesService } from './SectionBGImagesService';
 import { SectionHeadersService } from './SectionHeadersService';
 
 export class CourseProgramService {
@@ -25,11 +26,13 @@ export class CourseProgramService {
     const header = SectionHeadersService.getHeader('courseProgram');
     const lessons = CourseProgramService.getLessons();
     const breakpoints = CourseProgramService.getSwiperBreakpoints();
+    const bgImages = SectionBGImagesService.getBGImages('courseProgram');
     
     return {
       header,
       lessons,
       breakpoints,
+      bgImages,
     };
   }
 }

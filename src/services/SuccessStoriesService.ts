@@ -1,5 +1,6 @@
 import { Statistic, SuccessStoriesCTABlock, SuccessStoriesData, Testimonial } from '../types/sections';
 import { STATISTIC, SUCCESS_STORIES_CTA_BLOCK, TESTIMONIALS } from '../utils/constants';
+import { SectionBGImagesService } from './SectionBGImagesService';
 import { SectionHeadersService } from './SectionHeadersService';
 
 export class SuccessStoriesService {
@@ -20,12 +21,14 @@ export class SuccessStoriesService {
     const stats = SuccessStoriesService.getStatistic();
     const testimonials = SuccessStoriesService.getTestimonials();
     const ctaBlock = SuccessStoriesService.getCTABlock();
+    const bgImages = SectionBGImagesService.getBGImages('successStories');
     
     return {
       header,
       stats,
       testimonials,
       ctaBlock,
+      bgImages
     }
   }
 }

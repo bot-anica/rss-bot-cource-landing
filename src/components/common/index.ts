@@ -1,13 +1,16 @@
 export { default as Button } from './Button';
 export { default as Card } from './Card';
-export { default as MotionSection } from './MotionSection';
-export { default as SectionHeader } from './SectionHeader';
 export { default as BackgroundElements } from './BackgroundElements';
-export { default as SectionSplitter } from './SectionSplitter';
-export { default as ResponsiveImage } from './ResponsiveImage';
+export { default as ScrollToAncor } from './ScrollToAncor';
+export { default as SEOHead } from './SEOHead';
+
+// SECTION
+export { default as SectionHeader } from './section/SectionHeader';
+export { default as SectionSplitter } from './section/SectionSplitter';
+export { default as SectionBackground } from './section/SectionBackground';
+
+// PROPS
 export type { ButtonProps } from './Button';
 export type { CardProps } from './Card';
-export type { MotionSectionProps } from './MotionSection';
-export type { SectionHeaderProps } from './SectionHeader';
+export type { SectionHeaderProps } from './section/SectionHeader';
 export type { BackgroundElementsProps } from './BackgroundElements';
-export type { ResponsiveImageProps } from './ResponsiveImage';

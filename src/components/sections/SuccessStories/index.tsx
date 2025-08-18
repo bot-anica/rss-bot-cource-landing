@@ -6,11 +6,11 @@ import { SuccessStoriesBackground } from './SuccessStoriesBackground';
 import { SuccessStoriesStats } from './SuccessStoriesStats';
 import { SuccessStoriesTestimonials } from './SuccessStoriesTestimonials';
 import { SuccessStoriesCTA } from './SuccessStoriesCTA';
-import { SectionHeader } from '../../common';
+import { SectionBackground, SectionHeader } from '../../common';
 
 const SuccessStories: FC = () => {
   const [ref, isIntersecting] = useIntersectionObserver() as [React.RefObject<HTMLElement>, boolean];
-  const { header, stats, testimonials, ctaBlock } = useSuccessStories();
+  const { header, stats, testimonials, ctaBlock, bgImages } = useSuccessStories();
   const {
     statVariants,
     testimonialVariants,
@@ -22,6 +22,7 @@ const SuccessStories: FC = () => {
       ref={ref}
       className="py-20 bg-gray-900 relative overflow-hidden"
     >
+      <SectionBackground bgImages={bgImages} lazy />
       <SuccessStoriesBackground />
       
       <div className="container mx-auto px-4 relative z-10">

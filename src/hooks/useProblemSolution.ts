@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { ProblemSolutionService } from '../services/ProblemSolutionService';
 
 export const useProblemSolution = () => {
-  const { header, items, ctaBlock } = useMemo(() => ProblemSolutionService.getData(), []);
+  const { header, items, ctaBlock, bgImages } = useMemo(() => ProblemSolutionService.getData(), []);
 
-  return { header, items, ctaBlock };
+  return { header, items, ctaBlock, bgImages };
 };

@@ -1,5 +1,6 @@
 import { PricingPlan, PricingSectionData } from "../types/sections";
 import { PRICING_PLANS } from "../utils/constants";
+import { SectionBGImagesService } from "./SectionBGImagesService";
 import { SectionHeadersService } from "./SectionHeadersService";
 
 export class PricingService {
@@ -14,10 +15,12 @@ export class PricingService {
   static getData(): PricingSectionData {
     const header = SectionHeadersService.getHeader('pricingPlans');
     const plans = PricingService.getAllPlans();
+    const bgImages = SectionBGImagesService.getBGImages('pricingPlans');
 
     return {
       header,
       plans,
+      bgImages
     }
   }
 }

@@ -35,6 +35,25 @@ import {
 import renderDashboard from '../assets/images/render-dashboard.webp';
 import telegramBot from '../assets/images/telegram-bot.webp';
 import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../types/common";
+import { BGImages, LinkItem, PartialSectionBGImagesProps, SectionBGImagesProps } from "../types/sections";
+
+import HeroBGExtraLarge from '../assets/images/heroBG/HeroBG-ExtraLarge.png';
+import HeroBGLarge from '../assets/images/heroBG/HeroBG-Large.png';
+import HeroBGMediumHorizontal from '../assets/images/heroBG/HeroBG-MediumHorizontal.png';
+import HeroBGMediumVertical from '../assets/images/heroBG/HeroBG-MediumVertical.png';
+import HeroBGSmallHorizontal from '../assets/images/heroBG/HeroBG-SmallHorizontal.png';
+import HeroBGSmallVertical from '../assets/images/heroBG/HeroBG-SmallVertical.png';
+import LeftSideBGExtraLarge from "../assets/images/leftSideBG/LeftSideBG-ExtraLarge.jpg"
+import LeftSideBGLarge from "../assets/images/leftSideBG/LeftSideBG-Large.jpg"
+import LeftSideBGMedium from "../assets/images/leftSideBG/LeftSideBG-Medium.jpg"
+import LeftSideBGSmall from "../assets/images/leftSideBG/LeftSideBG-Small.jpg"
+import RightSideBGExtraLarge from "../assets/images/rightSideBG/RightSideBG-ExtraLarge.jpg"
+import RightSideBGLarge from "../assets/images/rightSideBG/RightSideBG-Large.jpg"
+import RightSideBGMedium from "../assets/images/rightSideBG/RightSideBG-Medium.jpg"
+import RightSideBGSmall from "../assets/images/rightSideBG/RightSideBG-Small.jpg"
+import CourseProgramBGLarge from "../assets/images/courseProgramBG/CourseProgramBG-Large.jpg"
+import CourseProgramBGMedium from "../assets/images/courseProgramBG/CourseProgramBG-Medium.jpg"
+import CourseProgramBGSmall from "../assets/images/courseProgramBG/CourseProgramBG-Small.jpg"
 
 export const CURRENCIES = {
   USD: { symbol: "$", name: "доллары США" },
@@ -78,6 +97,54 @@ export const SECTION_HEADERS = {
     title: "Выберите свой пакет",
     subtitle: "Все материалы предоставляются с доступом навсегда. Никаких подписок или скрытых платежей.",
   }
+};
+
+export const SECTION_BG_IMAGES: Record<string, PartialSectionBGImagesProps> = {
+  hero: {
+    topRight: {
+      extraLarge: HeroBGExtraLarge,
+      large: HeroBGLarge,
+      medium: HeroBGMediumHorizontal,
+      mediumVertical: HeroBGMediumVertical,
+      small: HeroBGSmallHorizontal,
+      smallVertical: HeroBGSmallVertical,
+    },
+  },
+  problemSolution: {
+    left: {
+      small: LeftSideBGSmall,
+      medium: LeftSideBGMedium,
+      large: LeftSideBGLarge,
+      extraLarge: LeftSideBGExtraLarge,
+    },
+    right: {
+      small: RightSideBGSmall,
+      medium: RightSideBGMedium,
+      large: RightSideBGLarge,
+      extraLarge: RightSideBGExtraLarge,
+    }
+  },
+  whySpecial: {
+    left: {
+      small: LeftSideBGSmall,
+      medium: LeftSideBGMedium,
+      large: LeftSideBGLarge,
+      extraLarge: LeftSideBGExtraLarge,
+    },
+    right: {
+      small: RightSideBGSmall,
+      medium: RightSideBGMedium,
+      large: RightSideBGLarge,
+      extraLarge: RightSideBGExtraLarge,
+    }
+  },
+  courseProgram: {
+    bottom: {
+      small: CourseProgramBGSmall,
+      medium: CourseProgramBGMedium,
+      large: CourseProgramBGLarge,
+    } 
+  },
 };
 
 export const PRICING_PLANS = [
@@ -516,3 +583,44 @@ export const SUCCESS_STORIES_CTA_BLOCK = {
   icon: Trophy,
   iconColor: '#EAB308',
 }
+
+export const COURSE_DESCRIPTION = "Полный курс по созданию профессионального Telegram-бота для парсинга RSS лент. От идеи до продакшена за 12 уроков."
+
+export const FOOTER_NAVIAGTION_LINKS = [
+  {
+    link: "#course",
+    text: "Программа курса"
+  },
+  {
+    link: "#pricing",
+    text: "Цены"
+  },
+  {
+    link: "#faq",
+    text: "FAQ"
+  },
+]
+
+export const HEADER_NAVIAGTION_LINKS = [
+  {
+    link: "#course",
+    text: "Программа курса"
+  },
+  {
+    link: "#pricing",
+    text: "Цены"
+  },
+  {
+    link: "#faq",
+    text: "FAQ"
+  },
+]
+
+export const HEADER_CTA_BUTTONS = [
+  {
+    text: "Начать обучение",
+    link: "#pricing",
+    buttonVariant: ButtonVariant.PRIMARY,
+    buttonSize: ButtonSize.SM,
+  }
+]

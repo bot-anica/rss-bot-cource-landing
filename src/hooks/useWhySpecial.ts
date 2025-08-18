@@ -5,7 +5,7 @@ export const useWhySpecial = () => {
   const [activePoint, setActivePoint] = useState(0);
   
   // Получаем данные из сервиса
-  const { header, whySpecialPoints, stats } = useMemo(() => {
+  const { header, whySpecialPoints, stats, bgImages } = useMemo(() => {
     return WhySpecialService.getData();
   }, []);
 
@@ -19,6 +19,7 @@ export const useWhySpecial = () => {
     header,
     whySpecialPoints,
     stats,
+    bgImages,
     activePoint,
     setActivePointIndex,
   };
