@@ -2,11 +2,11 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import { ToastContainer } from 'react-toastify';
-import Landing from './pages/Landing';
-import Payment from './pages/Payment';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import ScrollToAnchor from './components/common/ScrollToAncor';
+import Landing from './core/pages/Landing';
+import Payment from './core/pages/Payment';
+import Header from './core/components/layout/Header';
+import Footer from './core/components/layout/Footer';
+import ScrollToAnchor from './core/components/common/ScrollToAncor';
 
 function App() {
   return (

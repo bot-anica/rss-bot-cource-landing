@@ -1,5 +1,6 @@
-import { PartialSectionBGImagesProps } from "../types/sections";
+import { PartialSectionBGImagesProps } from "../core/types/sections";
 
+// BACKGROUND IMAGES
 import HeroBGExtraLarge from '../assets/images/heroBG/HeroBG-ExtraLarge.png';
 import HeroBGLarge from '../assets/images/heroBG/HeroBG-Large.png';
 import HeroBGMediumHorizontal from '../assets/images/heroBG/HeroBG-MediumHorizontal.png';
