@@ -1,5 +1,5 @@
+import { PRICING_PLANS } from "../constants/pricingPlans";
 import { PricingPlan, PricingSectionData } from "../types/sections";
-import { PRICING_PLANS } from "../utils/constants";
 import { SectionBGImagesService } from "./SectionBGImagesService";
 import { SectionHeadersService } from "./SectionHeadersService";
 

@@ -1,5 +1,5 @@
+import { STATS } from '../constants/stats';
 import { Stat } from '../types/sections';
-import { STATS } from '../utils/constants';
 
 export class StatsService {
   static getAllStats(): Stat[] {

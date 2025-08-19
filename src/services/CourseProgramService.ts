@@ -1,5 +1,5 @@
+import { LESSONS } from '../constants/courseProgram';
 import { CourseProgramData, Lesson } from '../types/sections';
-import { LESSONS } from '../utils/constants';
 import { SectionBGImagesService } from './SectionBGImagesService';
 import { SectionHeadersService } from './SectionHeadersService';
 

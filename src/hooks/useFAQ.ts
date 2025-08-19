@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { FAQS } from '../utils/faqData';
+import { FAQS } from '../constants/faqData';
 import { CurrencyService } from '../services/CurrencyService';
 import { useGeolocation } from './useGeolocation';
 import { FAQItem } from '../types/sections';

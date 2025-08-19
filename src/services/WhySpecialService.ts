@@ -1,5 +1,5 @@
+import { WHY_SPECIAL_POINTS } from '../constants/whySpecial';
 import { WhySpecialPoint, WhySpecialSectionData } from '../types/sections';
-import { WHY_SPECIAL_POINTS } from '../utils/constants';
 import { SectionBGImagesService } from './SectionBGImagesService';
 import { SectionHeadersService } from './SectionHeadersService';
 import { StatsService } from './StatsService';

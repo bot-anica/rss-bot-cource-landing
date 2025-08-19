@@ -1,5 +1,5 @@
+import { PROBLEM_SOLUTION_ITEMS, PROBLEM_SOLUTION_CTA_BLOCK } from '../constants/problemSolution';
 import { ProblemSolutionCTABlock, ProblemSolutionData, ProblemSolutionItem } from '../types/sections';
-import { PROBLEM_SOLUTION_CTA_BLOCK, PROBLEM_SOLUTION_ITEMS } from '../utils/constants';
 import { SectionBGImagesService } from './SectionBGImagesService';
 import { SectionHeadersService } from './SectionHeadersService';
 

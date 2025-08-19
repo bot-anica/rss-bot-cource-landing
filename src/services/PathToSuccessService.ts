@@ -1,5 +1,5 @@
+import { STEPS_TO_SUCCESS, PATH_TO_SUCCESS_IMAGES } from "../constants/pathToSuccess";
 import { PathToSuccessData, PathToSuccessImages, PathToSuccessStep } from "../types/sections";
-import { PATH_TO_SUCCESS_IMAGES, STEPS_TO_SUCCESS } from "../utils/constants";
 import { SectionBGImagesService } from "./SectionBGImagesService";
 import { SectionHeadersService } from "./SectionHeadersService";
 

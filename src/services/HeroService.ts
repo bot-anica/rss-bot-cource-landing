@@ -1,5 +1,5 @@
+import { HERO } from "../constants/hero";
 import { HeroData, HeroMainData } from "../types/sections";
-import { HERO } from "../utils/constants";
 import { SectionBGImagesService } from "./SectionBGImagesService";
 
 export class HeroService {
