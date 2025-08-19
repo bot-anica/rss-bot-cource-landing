@@ -1,4 +1,3 @@
-import BackgroundBlob from '../ui/BackgroundBlob';
 import BackgroundIcon from '../ui/BackgroundIcon';
 
 export interface BackgroundElementsProps {
@@ -7,7 +6,6 @@ export interface BackgroundElementsProps {
 }
 
 const BackgroundElements: React.FC<BackgroundElementsProps> = ({
-  showBlobs = true,
   showIcons = true
 }) => {
   return (

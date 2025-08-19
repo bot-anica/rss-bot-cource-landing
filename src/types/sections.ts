@@ -223,3 +223,30 @@ export interface HeaderData {
   navigationLinks: LinkItem[];
   ctaButtons: CTAItem[];
 }
+
+export interface SEOConfig {
+  title: string | undefined,
+  siteName: string,
+  description: string,
+  keywords: string,
+  image: string,
+  url: string | undefined,
+  locale: string,
+  twitterCard: 'summary_large_image',
+  type: 'website' | 'article',
+  noIndex: boolean | undefined
+}
+
+export interface PageSEOCongfig {
+  title: string
+  description: string
+  keywords: string
+  noIndex?: boolean
+}
+
+export type AVAILABLE_PAGES = 'home' | 'payment'
+
+export interface SEOData {
+  defaultSEOConfig: SEOConfig;
+  pageSEOConfigs: Record<AVAILABLE_PAGES, PageSEOCongfig>;
+}
