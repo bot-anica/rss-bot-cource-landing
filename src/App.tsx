@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import { ToastContainer } from 'react-toastify';
 import Landing from './pages/Landing';
-import Payment from './pages/Payment';
+import Checkout from './pages/Checkout';
 import Header from './core/components/layout/Header';
 import Footer from './core/components/layout/Footer';
 import ScrollToAnchor from './core/components/common/ScrollToAncor';
@@ -18,7 +18,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Landing />} />
-              <Route path="/payment/:plan" element={<Payment />} />
+              <Route path="/checkout/:plan" element={<Checkout />} />
             </Routes>
           </AnimatePresence>
           <Footer />
