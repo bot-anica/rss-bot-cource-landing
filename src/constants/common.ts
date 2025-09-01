@@ -101,6 +101,14 @@ export const SECTION_BG_IMAGES: Record<string, PartialSectionBGImagesProps> = {
       large: CourseProgramBGLarge,
     } 
   },
+  pricingPlansPopular: {
+    bottom: {
+      small: CourseProgramBGSmall,
+    },
+    topRight: {
+      smallVertical: HeroBGSmallVertical,
+    },
+  }
 };
 
 // Глобальные настройки SEO для сайта
