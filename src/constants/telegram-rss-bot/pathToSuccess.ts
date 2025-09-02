@@ -1,5 +1,5 @@
-import renderDashboard from '../assets/images/render-dashboard.webp';
-import telegramBot from '../assets/images/telegram-bot.webp';
+import renderDashboard from '../../assets/images/render-dashboard.webp';
+import telegramBot from '../../assets/images/telegram-bot.webp';
 
 export const STEPS_TO_SUCCESS = [
   {

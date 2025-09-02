@@ -1,23 +1,22 @@
-import { PartialSectionBGImagesProps } from "../core/types/sections";
+import HeroBGExtraLarge from '../../assets/images/heroBG/HeroBG-ExtraLarge.png';
+import HeroBGLarge from '../../assets/images/heroBG/HeroBG-Large.png';
+import HeroBGMediumHorizontal from '../../assets/images/heroBG/HeroBG-MediumHorizontal.png';
+import HeroBGMediumVertical from '../../assets/images/heroBG/HeroBG-MediumVertical.png';
+import HeroBGSmallHorizontal from '../../assets/images/heroBG/HeroBG-SmallHorizontal.png';
+import HeroBGSmallVertical from '../../assets/images/heroBG/HeroBG-SmallVertical.png';
+import LeftSideBGExtraLarge from "../../assets/images/leftSideBG/LeftSideBG-ExtraLarge.jpg"
+import LeftSideBGLarge from "../../assets/images/leftSideBG/LeftSideBG-Large.jpg"
+import LeftSideBGMedium from "../../assets/images/leftSideBG/LeftSideBG-Medium.jpg"
+import LeftSideBGSmall from "../../assets/images/leftSideBG/LeftSideBG-Small.jpg"
+import RightSideBGExtraLarge from "../../assets/images/rightSideBG/RightSideBG-ExtraLarge.jpg"
+import RightSideBGLarge from "../../assets/images/rightSideBG/RightSideBG-Large.jpg"
+import RightSideBGMedium from "../../assets/images/rightSideBG/RightSideBG-Medium.jpg"
+import RightSideBGSmall from "../../assets/images/rightSideBG/RightSideBG-Small.jpg"
+import CourseProgramBGLarge from "../../assets/images/courseProgramBG/CourseProgramBG-Large.jpg"
+import CourseProgramBGMedium from "../../assets/images/courseProgramBG/CourseProgramBG-Medium.jpg"
+import CourseProgramBGSmall from "../../assets/images/courseProgramBG/CourseProgramBG-Small.jpg"
 
-// BACKGROUND IMAGES
-import HeroBGExtraLarge from '../assets/images/heroBG/HeroBG-ExtraLarge.png';
-import HeroBGLarge from '../assets/images/heroBG/HeroBG-Large.png';
-import HeroBGMediumHorizontal from '../assets/images/heroBG/HeroBG-MediumHorizontal.png';
-import HeroBGMediumVertical from '../assets/images/heroBG/HeroBG-MediumVertical.png';
-import HeroBGSmallHorizontal from '../assets/images/heroBG/HeroBG-SmallHorizontal.png';
-import HeroBGSmallVertical from '../assets/images/heroBG/HeroBG-SmallVertical.png';
-import LeftSideBGExtraLarge from "../assets/images/leftSideBG/LeftSideBG-ExtraLarge.jpg"
-import LeftSideBGLarge from "../assets/images/leftSideBG/LeftSideBG-Large.jpg"
-import LeftSideBGMedium from "../assets/images/leftSideBG/LeftSideBG-Medium.jpg"
-import LeftSideBGSmall from "../assets/images/leftSideBG/LeftSideBG-Small.jpg"
-import RightSideBGExtraLarge from "../assets/images/rightSideBG/RightSideBG-ExtraLarge.jpg"
-import RightSideBGLarge from "../assets/images/rightSideBG/RightSideBG-Large.jpg"
-import RightSideBGMedium from "../assets/images/rightSideBG/RightSideBG-Medium.jpg"
-import RightSideBGSmall from "../assets/images/rightSideBG/RightSideBG-Small.jpg"
-import CourseProgramBGLarge from "../assets/images/courseProgramBG/CourseProgramBG-Large.jpg"
-import CourseProgramBGMedium from "../assets/images/courseProgramBG/CourseProgramBG-Medium.jpg"
-import CourseProgramBGSmall from "../assets/images/courseProgramBG/CourseProgramBG-Small.jpg"
+import { PartialSectionBGImagesProps } from '../../core/types/sections';
 
 export const SECTION_HEADERS = {
   whySpecial: {

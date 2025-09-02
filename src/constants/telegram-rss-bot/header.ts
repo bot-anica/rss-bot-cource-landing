@@ -1,4 +1,4 @@
-import { ButtonVariant, ButtonSize } from "../core/types/common"
+import { ButtonVariant, ButtonSize } from "../../core/types/common"
 
 export const HEADER_NAVIAGTION_LINKS = [
   {

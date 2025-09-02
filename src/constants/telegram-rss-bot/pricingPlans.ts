@@ -1,5 +1,5 @@
 import { FileText, Package, Video } from "lucide-react";
-import { ButtonVariant } from "../core/types/common";
+import { ButtonVariant } from "../../core/types/common";
 
 export const CURRENCIES = {
   USD: { symbol: "$", name: "доллары США" },

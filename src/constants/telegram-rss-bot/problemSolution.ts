@@ -1,5 +1,5 @@
 import { Sparkles, Zap, Star, Heart, ArrowRight } from "lucide-react"
-import { ButtonVariant, ButtonSize, ButtonIconPosition } from "../core/types/common"
+import { ButtonVariant, ButtonSize, ButtonIconPosition } from "../../core/types/common"
 
 export const PROBLEM_SOLUTION_ITEMS = [
   {

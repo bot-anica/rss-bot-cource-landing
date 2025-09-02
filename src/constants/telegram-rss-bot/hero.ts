@@ -1,10 +1,11 @@
 import { ArrowRight, Play } from "lucide-react";
-import { ButtonVariant, ButtonSize, ButtonIconPosition } from "../core/types/common";
 
-import HeroImageHorizontalSmall from '../assets/images/heroImage/HeroImageHorizontalSmall.png';
-import HeroImageHorizontalMiddle from '../assets/images/heroImage/HeroImageHorizontalMiddle.png';
-import HeroImageVerticalLarge from '../assets/images/heroImage/HeroImageVerticalLarge.png';
-import HeroImageVerticalExtraLarge from '../assets/images/heroImage/HeroImageVerticalExtraLarge.png';
+import { ButtonVariant, ButtonSize, ButtonIconPosition } from "../../core/types/common";
+
+import HeroImageHorizontalSmall from '../../assets/images/heroImage/HeroImageHorizontalSmall.png';
+import HeroImageHorizontalMiddle from '../../assets/images/heroImage/HeroImageHorizontalMiddle.png';
+import HeroImageVerticalLarge from '../../assets/images/heroImage/HeroImageVerticalLarge.png';
+import HeroImageVerticalExtraLarge from '../../assets/images/heroImage/HeroImageVerticalExtraLarge.png';
 
 export const HERO_TITLE = {
   main: 'Создайте профессионального',
