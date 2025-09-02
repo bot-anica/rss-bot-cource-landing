@@ -101,7 +101,7 @@ export const SECTION_BG_IMAGES: Record<string, PartialSectionBGImagesProps> = {
       large: CourseProgramBGLarge,
     } 
   },
-  pricingPlansPopular: {
+  popularCard: {
     bottom: {
       small: CourseProgramBGSmall,
     },
