@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import Hero from '../core/components/pages/landing/Hero';
-// import Features from '../components/sections/Features';
-import ProblemSolution from '../core/components/pages/landing/ProblemSolution';
-import WhySpecial from '../core/components/pages/landing/WhySpecial';
-import CourseProgram from '../core/components/pages/landing/CourseProgram';
-// import PathToSuccess from '../components/sections/PathToSuccess';
-// import SuccessStories from '../components/sections/SuccessStories';
-import FAQ from '../core/components/pages/landing/FAQ';
-import PricingPlans from '../core/components/pages/landing/PricingPlans';
 import SEOHead from '../core/components/common/SEOHead';
 import { useSEO } from '../core/hooks/useSEO';
+import LazyLoadSection from '../core/components/common/LazyLoadSection';
+
+const ProblemSolution = lazy(() => import('../core/components/pages/landing/ProblemSolution'));
+const WhySpecial = lazy(() => import('../core/components/pages/landing/WhySpecial'));
+const CourseProgram = lazy(() => import('../core/components/pages/landing/CourseProgram'));
+const PricingPlans = lazy(() => import('../core/components/pages/landing/PricingPlans'));
+const FAQ = lazy(() => import('../core/components/pages/landing/FAQ'));
 
 const Landing: React.FC = () => {
   const seoConfig = useSEO('home');
@@ -18,14 +17,24 @@ const Landing: React.FC = () => {
     <>
       {seoConfig && <SEOHead {...seoConfig} />}
       <Hero />
-      <ProblemSolution />
+      <LazyLoadSection fallback={<div />}>
+        <ProblemSolution />
+      </LazyLoadSection>
       {/* <Features /> */}
-      <WhySpecial />
-      <CourseProgram />
+      <LazyLoadSection fallback={<div />}>
+        <WhySpecial />
+      </LazyLoadSection>
+      <LazyLoadSection fallback={<div />}>
+        <CourseProgram />
+      </LazyLoadSection>
       {/* <PathToSuccess /> */}
       {/* <SuccessStories /> */}
-      <PricingPlans />
-      <FAQ />
+      <LazyLoadSection fallback={<div />}>
+        <PricingPlans />
+      </LazyLoadSection>
+      <LazyLoadSection fallback={<div />}>
+        <FAQ />
+      </LazyLoadSection>
     </>
   );
 };
