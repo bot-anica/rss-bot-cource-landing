@@ -17,17 +17,15 @@ const Landing: React.FC = () => {
   return (
     <>
       {seoConfig && <SEOHead {...seoConfig} />}
-      <main>
-        <Hero />
-        <ProblemSolution />
-        {/* <Features /> */}
-        <WhySpecial />
-        <CourseProgram />
-        {/* <PathToSuccess /> */}
-        {/* <SuccessStories /> */}
-        <PricingPlans />
-        <FAQ />
-      </main>
+      <Hero />
+      <ProblemSolution />
+      {/* <Features /> */}
+      <WhySpecial />
+      <CourseProgram />
+      {/* <PathToSuccess /> */}
+      {/* <SuccessStories /> */}
+      <PricingPlans />
+      <FAQ />
     </>
   );
 };
